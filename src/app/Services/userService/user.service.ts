@@ -11,4 +11,8 @@ export class UserService {
   SignUp(data:any){
     return this.HttpService.SignUp("User/Register",data);
   }
+
+  Login(data:any){
+    return this.HttpService.Login("User/Login",data);
+  }
 }

@@ -15,4 +15,8 @@ export class HttpService {
   SignUp(url:any, data:any){
    return this.http.post(this.baseUrl+url, data);
   }
+
+  Login(url:any, data:any){
+    return this.http.post(this.baseUrl+url, data);
+  }
 }
