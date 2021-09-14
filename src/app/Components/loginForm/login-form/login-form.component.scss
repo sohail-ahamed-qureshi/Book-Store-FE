@@ -1,0 +1,30 @@
+.inputSection{
+    width: 300px;
+}
+
+.OnlineButtons{
+    padding-top:10px ;
+}
+
+.submitBtn{
+    background-color: #A03037;
+    color: white;
+}
+
+.buttonsPart{
+    padding-top: 10px;
+}
+
+.buttons{
+    margin-top:10px;
+    margin-right: 10px;
+    width: 140px;
+}
+
+
+.invalid-feedback,
+mat-icon {
+  color: rgb(226, 39, 39);
+  font-size: 14px;
+  text-align: left;
+}

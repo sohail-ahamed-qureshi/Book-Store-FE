@@ -1,0 +1,50 @@
+<div fxLayout="column" fxLayoutAlign="center center" >
+    <form  [formGroup]="SignUpForm" (ngSubmit)="OnSignUp()">
+        <div class="inputSection" fxLayout="column wrap">
+
+          <mat-form-field appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <input class="input" formControlName="fullname" matInput type="text" autocomplete="off" />
+            <mat-hint *ngIf="submitted && f.fullname.errors && f.fullname.errors.required" class="invalid-feedback">
+              <mat-icon matPrefix>error</mat-icon> Enter a valid name
+            </mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Email Address</mat-label>
+            <input class="input" formControlName="email" matInput type="email" />
+            <mat-hint *ngIf="submitted && f.email.errors && f.email.errors.required" class="invalid-feedback">
+              <mat-icon matPrefix>error</mat-icon> Enter a valid email
+            </mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input [type]="showPwd? 'text':'password'" class="input" formControlName="password" matInput type="password"
+              autocomplete="off" />
+              <mat-icon (click)="OnCheck()" *ngIf="visible"  matSuffix>visibility</mat-icon>
+              <mat-icon (click)="OnCheck()" *ngIf="!visible"  matSuffix>visibility_off</mat-icon>
+              
+            <mat-hint *ngIf="submitted && f.password.errors  && f.password.errors.required" class="invalid-feedback">
+              <mat-icon matPrefix>error</mat-icon> Enter a valid password
+            </mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Mobile Number</mat-label>
+            <input class="input" formControlName="mobile" matInput type="number" />
+            <mat-hint *ngIf="submitted && f.mobile.errors && f.mobile.errors.required" class="invalid-feedback">
+              <mat-icon matPrefix>error</mat-icon> Enter a valid mobile number
+            </mat-hint>
+          </mat-form-field>
+          
+        </div>
+        <!-- <button mat-button routerLink= "/forgotPassword" color="primary">forgot Password?</button> -->
+      
+        <div class="buttonsPart" fxLayout="column wrap">
+          <button  class="submitBtn" mat-raised-button >
+            Signup
+          </button>
+        </div>
+      </form>
+</div>
