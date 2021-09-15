@@ -1,3 +1,4 @@
+import { HttpService } from './../httpService/http.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,10 @@ import { Injectable } from '@angular/core';
 })
 export class AdminService {
 
-  constructor() { }
+  constructor(private http: HttpService) { }
+
+  GetAllBooks(){
+    return this.http.GetAllBooks("Dashboard");
+  }
+
 }

@@ -12,6 +12,10 @@ export class HttpService {
   constructor(private http: HttpClient,
   ) { }
 
+  GetAllBooks(url:any){
+    return this.http.get(this.baseUrl+url);
+  }
+
   SignUp(url:any, data:any){
    return this.http.post(this.baseUrl+url, data);
   }

@@ -18,6 +18,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { FooterComponent } from './Components/footer/footer.component';
+import { DisplayBooksComponent } from './Components/display-books/display-books.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { FooterComponent } from './Components/footer/footer.component';
     SignUpFormComponent,
     NavBarComponent,
     FooterComponent,
+    DisplayBooksComponent,
 
   ],
   imports: [

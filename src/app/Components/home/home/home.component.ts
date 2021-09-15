@@ -1,3 +1,4 @@
+import { AdminService } from './../../../Services/adminService/admin.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  allBooks:any=[];
+  
+  constructor(private adminSerivce: AdminService) { }
 
   ngOnInit(): void {
+    this.GetAllBooks();
+  }
+
+  GetAllBooks() {
+    this.adminSerivce.GetAllBooks().subscribe((response: any) => {
+      this.allBooks = response.data;
+      console.log(this.allBooks.length)
+    })
   }
 
 }
