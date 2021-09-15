@@ -3,18 +3,21 @@
         <img class="cartImage" src="../../../../assets/cartImage.png" alt="cartImage">
         <h2>Online Book Shopping </h2>
     </div>
+
     <div class="loginContent">
         <div class="buttons" fxLayout="row" fxLayoutAlign="space-around">
-            <button (click)="islogin=false ">Login</button>
-            <button (click)="islogin=true">SignUp</button>
+            <div  fxLayout="column" fxLayoutAlign="center center">
+                <button (click)="redirectToLogin()">Login</button>
+                <span *ngIf="!isLogin" ></span>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <button (click)="redirectToSignUp()">SignUp</button>
+                <span *ngIf="isLogin" ></span>
+            </div>
         </div>
 
-        <div class="signUp" *ngIf="islogin">
-            <app-sign-up-form></app-sign-up-form>
-        </div>
-
-        <div class="login" *ngIf="!islogin">
-            <app-login-form></app-login-form>
+        <div class="login">
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>

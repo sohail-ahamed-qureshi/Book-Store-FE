@@ -14,7 +14,10 @@ import { LoginFormComponent } from './Components/loginForm/login-form/login-form
 import { SignUpFormComponent } from './Components/SignUpFrom/sign-up-form/sign-up-form.component';
 import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { FooterComponent } from './Components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     LoginFormComponent,
     SignUpFormComponent,
+    NavBarComponent,
+    FooterComponent,
 
   ],
   imports: [
@@ -34,7 +39,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
+    MatToolbarModule
     
 
   ],

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -16,7 +17,8 @@ export class SignUpFormComponent implements OnInit {
   showPwd: boolean = false;
   visible = false;
   constructor(private formBuilder: FormBuilder,
-    private user: UserService) { }
+    private user: UserService,
+    private route: Router) { }
 
   ngOnInit(): void {
     this.SignUpForm = this.formBuilder.group({
@@ -50,10 +52,12 @@ export class SignUpFormComponent implements OnInit {
       mobileNumber: this.SignUpForm.value.mobile
     }
     console.log(requestPayload);
-    this.user.SignUp(requestPayload).subscribe((response:any) =>{
-      console.log(response);
-    })
-
+    this.user.SignUp(requestPayload).subscribe((response: any) => {
+      this.user.openSnackBar(response.message);
+      this.route.navigateByUrl('User/login')
+    }, error => {
+      this.user.openSnackBar(error.error.message);
+    });
   }
 
 }

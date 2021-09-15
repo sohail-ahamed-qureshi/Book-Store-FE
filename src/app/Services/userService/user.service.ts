@@ -1,13 +1,21 @@
 import { HttpService } from './../httpService/http.service';
-import { Injectable } from '@angular/core';
+import { Injectable, Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  durationInSeconds=3;
+  constructor(private HttpService: HttpService,
+    private snackBar: MatSnackBar) { }
 
-  constructor(private HttpService: HttpService) { }
-
+  openSnackBar( message:string) {
+    this.snackBar.open(message,'OK', {
+      duration: this.durationInSeconds* 1000,
+    });
+  }
+  
   SignUp(data:any){
     return this.HttpService.SignUp("User/Register",data);
   }

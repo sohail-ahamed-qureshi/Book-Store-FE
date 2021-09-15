@@ -1,0 +1,24 @@
+<mat-toolbar fxFlex=100 fxLayout="row" fxLayoutAlign="space-around center">
+    <div fxLayoutGap=20px fxLayout="row" fxLayoutAlign="none center">
+        <div fxLayoutGap=8px fxLayoutAlign="none center">
+            <img class="logo" src="../../../assets/education.svg" alt="">
+            <span class="logoName">Bookstore</span>
+        </div>
+        <div>
+
+            <input type="text" placeholder="Search">
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="none center">
+        <div (click)="clickedProfile()" class="userProfile" fxLayout="column" fxLayoutAlign="none center">
+            <img src="../../../assets/person_white_24dp.svg" alt="userProfile">
+            <p>Profile</p>
+            <span *ngIf="isProfile"></span>
+        </div>
+        <div class="cart" fxLayout="column" fxLayoutAlign="none center">
+            <img src="../../../assets/shopping_cart_white_24dp.svg" alt="cart">
+            <p>Cart</p>
+        </div>
+    </div>
+
+</mat-toolbar>
