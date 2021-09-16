@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/Services/dataService/data.service';
 
@@ -9,7 +10,8 @@ import { DataService } from 'src/app/Services/dataService/data.service';
 })
 export class NavBarComponent implements OnInit {
   isProfile = false;
-  constructor(private dataService:DataService) { }
+  constructor(private dataService: DataService,
+    private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,10 +20,23 @@ export class NavBarComponent implements OnInit {
     this.isProfile = !this.isProfile;
   }
 
-  shareSeachWord(search:any){
-   this.dataService.sendSearch(search);
+  shareSeachWord(search: any) {
+    this.dataService.sendSearch(search);
   }
 
+  redirectToOrders() {
+  }
+
+  redirectToWishlist() {
+
+  }
+  redirectToCart(){
+
+  }
+
+  redirectToHome(){
+    this.route.navigateByUrl('home');
+  }
 
 
 }

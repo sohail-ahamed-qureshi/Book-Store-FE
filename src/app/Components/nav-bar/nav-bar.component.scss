@@ -1,14 +1,18 @@
-:root {
-    --blue: #1e90ff;
-}
+$blue     : #1e90ff;
+$color-red:#A03037;
 
 mat-toolbar {
     background: #A03037 0% 0% no-repeat padding-box;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 99;
+    position  : fixed;
+    top       : 0;
+    width     : 100%;
+    z-index   : 99;
+    padding: 0px 0px 0px 17%;
 
+}
+
+.LogoPart{
+    cursor: pointer;
 }
 
 .logo {
@@ -42,6 +46,7 @@ input {
     cursor     : pointer;
     width      : 100px;
     height     : 100%;
+
     img {
         width : 31px;
         height: 25px;
@@ -69,7 +74,7 @@ input {
     cursor     : pointer;
     width      : 100px;
     height     : 100%;
-    
+
     img {
         width : 31px;
         height: 25px;
@@ -90,4 +95,58 @@ input {
         border-radius: 4px;
         opacity      : 1;
     }
+
+
+}
+
+::ng-deep .Profile {
+    .Menu {
+        padding: 0px 10px 10px 20px;
+
+        .loginBtn {
+            border        : 1px solid $color-red;
+            color         : $color-red;
+            text-transform: uppercase;
+            width         : 150px;
+            padding       : 10px;
+            margin        : 0px 0px 0px 0px;
+            border-radius : 4px;
+            cursor        : pointer;
+        }
+    }
+
+    hr {
+        width : 90%;
+        margin: 0px 0px 10px 0px;
+    }
+
+    .MenuBtn {
+        padding: 15px;
+
+        .Btn{
+            text-transform: capitalize;
+            cursor: pointer;
+        }
+    }
+
+
+
+
+}
+
+.head {
+    font: normal normal normal 18px/12px 'Roboto', sans-serif;
+}
+
+.pad {
+    padding: 10px 0px;
+}
+
+.padb {
+    padding-bottom: 10px;
+}
+
+.mar-r{
+    margin-right: 5px;
+    opacity: .63;
 }

@@ -12,4 +12,8 @@ export class AdminService {
     return this.http.GetAllBooks("Dashboard");
   }
 
+  // GetBookDetails(bookId:any){
+  // //  return this.http.GetBookId('Book/'+bookId);
+  // }
+
 }

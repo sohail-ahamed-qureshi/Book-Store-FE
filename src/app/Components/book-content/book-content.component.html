@@ -1,0 +1,72 @@
+<app-nav-bar></app-nav-bar>
+<section class="mainSection" fxLayout="column">
+    <section class="header">
+        <div class="breadCrumb">
+            <span> <span class="HomeBC" (click)="redirectToHome()" [mat-dialog-close]='true'>Home / </span>
+                Book({{book.bookId}})</span>
+        </div>
+    </section>
+    <section class="mainContent" fxLayout="row" fxLayoutAlign="center none">
+        <div class="imagePart" fxLayout="column" fxLayoutAlign="none center">
+            <div class="image" fxLayoutAlign="center center">
+                <img src="{{book.image}}" alt="bookImage" onerror="this.onerror=null; 
+                this.src='https://res.cloudinary.com/dn1xsclq9/image/upload/v1631726343/component_m78r3t.png'">
+            </div>
+            <div class="buttons" fxLayoutAlign="space-between center">
+                <button (click)="AddToCart()" class="btn">add to bag</button>
+                <button (click)="AddTowishlist()" class="btn wishlt" fxLayoutAlign="center center">
+                    <span><img src="../../../assets/favorite_white_24dp.svg" alt=""></span>
+                    wishlist
+                </button>
+            </div>
+        </div>
+        <div class="bookDetails">
+            <div class="basicDetails" fxLayout="column">
+                <span class="bookName"> {{book.bookName}} </span>
+                <span class="author">by {{book.author}}</span>
+                <div class="ratingPart" fxLayout="row" fxLayoutAlign="none center">
+                    <div class="ratings" fxLayout="row" fxLayoutAlign="center center">
+                        <span class="rate">{{book.rating}}</span>
+                        <img src="../../../assets/star_white_24dp.svg" alt="rating">
+                    </div>
+                    <div>
+                        <span class="review"> (20)</span>
+                    </div>
+                </div>
+                <div class="pricePart">
+                    <span class="currPrice">Rs. {{book.price}}</span>
+                    <span class="actPrice">Rs. 2000</span>
+                </div>
+            </div>
+            <hr>
+            <div class="description">
+                <ul class="heading">
+                    <li> Book detail</li>
+                </ul>
+                <p>{{book.description}}
+                </p>
+            </div>
+            <hr>
+            <div class="FeedBack">
+                <span class="heading" >Customer FeedBack</span>
+
+                <div class="feedbackInput" fxLayout="column" >
+                    <span class="ratingHeading" >Overall Rating</span>
+                    <div class="stars" >
+                        <img src="../../../assets/star_border_black_24dp.svg" alt="rating">
+                        <img src="../../../assets/star_border_black_24dp.svg" alt="rating">
+                        <img src="../../../assets/star_border_black_24dp.svg" alt="rating">
+                        <img src="../../../assets/star_border_black_24dp.svg" alt="rating">
+                        <img src="../../../assets/star_border_black_24dp.svg" alt="rating">
+                    </div>
+                    <textarea name="rating" id="" cols="30" rows="5"></textarea>
+                    <div fxLayoutAlign="end center" >
+                        <button class="btn" >Submit</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+</section>

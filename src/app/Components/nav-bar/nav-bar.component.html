@@ -1,24 +1,50 @@
-<mat-toolbar fxFlex=100 fxLayout="row" fxLayoutAlign="space-around center">
+<mat-toolbar fxFlex=100 fxLayout="row" fxLayoutAlign="space-between center">
     <div fxLayoutGap=20px fxLayout="row" fxLayoutAlign="none center">
-        <div fxLayoutGap=8px fxLayoutAlign="none center">
+        <div class="LogoPart" (click)="redirectToHome()" fxLayoutGap=8px fxLayoutAlign="none center">
             <img class="logo" src="../../../assets/education.svg" alt="">
             <span class="logoName">Bookstore</span>
         </div>
         <div>
-
             <input type="text" placeholder="Search" #search (keyup)="shareSeachWord(search.value)">
         </div>
     </div>
     <div fxLayout="row" fxLayoutAlign="none center">
-        <div (click)="clickedProfile()" class="userProfile" fxLayout="column" fxLayoutAlign="none center">
+        <div (click)="clickedProfile()" [mat-menu-trigger-for]="ProfileMenu" class="userProfile" fxLayout="column"
+            fxLayoutAlign="none center">
             <img src="../../../assets/person_white_24dp.svg" alt="userProfile">
             <p>Profile</p>
             <span *ngIf="isProfile"></span>
         </div>
-        <div class="cart" fxLayout="column" fxLayoutAlign="none center">
+        <div (click)="redirectToCart()" class="cart" fxLayout="column" fxLayoutAlign="none center">
             <img src="../../../assets/shopping_cart_white_24dp.svg" alt="cart">
             <p>Cart</p>
         </div>
     </div>
+
+    <mat-menu class="Profile" fxLayout="column" fxLayoutAlign="center center" #ProfileMenu="matMenu" yPosition="below">
+        <div class="Menu">
+            <div class="menuDescription" fxLayout="column">
+                <span class="head pad" >Welcome</span>
+                <span class=" padb" >To access account and manage orders</span>
+            </div>
+            <div class="loginBtn">
+                login/signup
+            </div>
+        </div>
+        <div fxLayoutAlign="center">
+            <hr>
+        </div>
+
+        <div class="MenuBtn" fxLayout="column" fxLayoutAlign="center">
+            <div class="Btn padb" (click)="redirectToOrders()" fxLayoutAlign="none center">
+                <img class="mar-r" src="../../../assets/markunread_mailbox_black_24dp.svg" alt="">
+                <span > My orders </span>
+            </div>
+            <div class="Btn" fxLayoutAlign="none center" (click)="redirectToWishlist()">
+                <img class="mar-r" src="../../../assets/favorite_border_black_24dp.svg" alt="">
+                <span>  wishlist </span>
+            </div>
+        </div>
+    </mat-menu>
 
 </mat-toolbar>

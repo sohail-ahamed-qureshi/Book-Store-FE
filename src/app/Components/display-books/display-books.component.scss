@@ -1,14 +1,15 @@
 $background-white: #ffffff;
 $background-gray : #F5F5F5;
 $bacground-black : rgba(17, 2, 2, 0.6);
+$background-green:#388E3C;
 
 .mainSection {
-    padding   : 20px 160px;
+    padding   : 1% 10%;
     min-height: 85.7%;
 
     .header {
         margin-top: 6%;
-        padding   : 0px 160px;
+        padding   : 0 9%;
     }
 
 }
@@ -82,7 +83,7 @@ $bacground-black : rgba(17, 2, 2, 0.6);
         .ratings {
             width        : 33px;
             height       : 16px;
-            background   : #388E3C 0% 0% no-repeat padding-box;
+            background   : $background-green 0% 0% no-repeat padding-box;
             border-radius: 1px;
             opacity      : 1;
             padding      : 0px 3px;

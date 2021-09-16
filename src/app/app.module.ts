@@ -21,6 +21,9 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { DisplayBooksComponent } from './Components/display-books/display-books.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { BookSearchPipe } from './Pipes/book-search.pipe';
+import {MatDialogModule} from '@angular/material/dialog';
+import { BookContentComponent } from './Components/book-content/book-content.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,8 @@ import { BookSearchPipe } from './Pipes/book-search.pipe';
     FooterComponent,
     DisplayBooksComponent,
     BookSearchPipe,
+    BookContentComponent
+
 
   ],
   imports: [
@@ -48,7 +53,9 @@ import { BookSearchPipe } from './Pipes/book-search.pipe';
     HttpClientModule,
     MatSnackBarModule,
     MatToolbarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule,
+    MatMenuModule
     
 
   ],

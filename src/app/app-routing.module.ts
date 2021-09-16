@@ -1,3 +1,4 @@
+import { BookContentComponent } from './Components/book-content/book-content.component';
 import { SignUpFormComponent } from './Components/SignUpFrom/sign-up-form/sign-up-form.component';
 import { LoginFormComponent } from './Components/loginForm/login-form/login-form.component';
 import { HomeComponent } from './Components/home/home/home.component';
@@ -26,7 +27,9 @@ const routes: Routes = [
         }
       ]
   },
-  { path: 'home', component: HomeComponent }
+  { path: 'home', component: HomeComponent },
+  { path: 'Book', component: BookContentComponent }
+
 ];
 
 @NgModule({
