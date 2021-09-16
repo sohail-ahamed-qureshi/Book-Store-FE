@@ -1,23 +1,25 @@
-<section class="mainSection"  >
+<section class="mainSection">
     <section class="header" fxLayout="row" fxLayoutAlign="space-between center">
-        <h2>Books( {{count}} items)</h2>
+        <h2>Books({{books.length}} items)</h2>
         <div>
             sort section
         </div>
     </section>
-    <section class="mainContent" fxLayout="row wrap"  >
-        <div class="card" fxLayout="column" *ngFor="let book of books" >
-            <div class="imagePart" fxLayoutAlign="center center" >
-                <img src="../../../assets/Image 11.png" alt="book image">
+    <section class="mainContent" fxLayout="row wrap" fxLayoutAlign="center center" >
+        <div class="card"  fxLayout="column" *ngFor="let book of books | bookSearch: searchWord">
+            <div class="imagePart" fxLayoutAlign="center center">
+                <img src="{{book.image}}" alt="book image" onerror="this.onerror=null; 
+                this.src='https://res.cloudinary.com/dn1xsclq9/image/upload/v1631726343/component_m78r3t.png'">
             </div>
+           
             <div class="cardBody" fxLayout="column">
                 <div>
                     <h3 class="BookDetails">{{book.bookName}}</h3>
                     <p class="author">{{book.author}}</p>
                 </div>
                 <div class="ratingPart" fxLayout="row" fxLayoutAlign="none center">
-                    <div class="ratings"  fxLayout="row" fxLayoutAlign="none center">
-                        <span class="rate" >{{book.rating}}</span>
+                    <div class="ratings" fxLayout="row" fxLayoutAlign="none center">
+                        <span class="rate">{{book.rating}}</span>
                         <img src="../../../assets/star_white_24dp.svg" alt="rating">
                     </div>
                     <div>
@@ -25,10 +27,13 @@
                     </div>
                 </div>
                 <div class="Price" fxLayout="row" fxLayoutAlign="none center">
-                    <span class="CurrPrice" >Rs. {{book.price}}</span>
-                    <span class="actPrice" >Rs. 2000</span>
+                    <span class="CurrPrice">Rs. {{book.price}}</span>
+                    <span class="actPrice">Rs. 2000</span>
                 </div>
             </div>
+            <span class="quickView">
+                quick view
+            </span>
         </div>
     </section>
     <section class="pagination">

@@ -1,6 +1,15 @@
+$background-white: #ffffff;
+$background-gray : #F5F5F5;
+$bacground-black : rgba(17, 2, 2, 0.6);
+
 .mainSection {
-    padding: 20px 188px;
+    padding   : 20px 160px;
     min-height: 85.7%;
+
+    .header {
+        margin-top: 6%;
+        padding   : 0px 160px;
+    }
 
 }
 
@@ -8,17 +17,42 @@
     .card {
         width        : 235px;
         height       : 285px;
-        background   : #FFFFFF 0% 0% no-repeat padding-box;
+        background   : $background-white 0% 0% no-repeat padding-box;
         border       : 1px solid #E2E2E2;
         border-radius: 3px;
         opacity      : 1;
-        margin-right: 20px;
+        margin       : 0px 0px 20px 20px;
+        cursor       : pointer;
+        position     : relative;
+
+        .quickView {
+            display       : none;
+            width         : auto;
+            height        : auto;
+            padding       : 3px;
+            text-align    : center;
+            text-transform: uppercase;
+            font-family: 'Lato', sans-serif;
+            font-size: 10px;
+            position      : absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .card:hover {
+        .quickView {
+            display         : block;
+            background-color: $bacground-black;
+            color           : $background-white;
+        }
     }
 
     .imagePart {
         width        : 100%;
         height       : 175px;
-        background   : #F5F5F5 0% 0% no-repeat padding-box;
+        background   : $background-gray 0% 0% no-repeat padding-box;
         border-radius: 2px 2px 0px 0px;
     }
 
@@ -51,16 +85,16 @@
             background   : #388E3C 0% 0% no-repeat padding-box;
             border-radius: 1px;
             opacity      : 1;
-            padding: 0px 3px;
+            padding      : 0px 3px;
 
 
             img {
                 width: 14px;
             }
 
-            .rate{
-              
-                color: #FFFFFF;
+            .rate {
+
+                color    : #FFFFFF;
                 font-size: 12px;
             }
 

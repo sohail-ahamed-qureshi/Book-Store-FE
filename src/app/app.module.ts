@@ -19,6 +19,9 @@ import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { FooterComponent } from './Components/footer/footer.component';
 import { DisplayBooksComponent } from './Components/display-books/display-books.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { BookSearchPipe } from './Pipes/book-search.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +32,7 @@ import { DisplayBooksComponent } from './Components/display-books/display-books.
     NavBarComponent,
     FooterComponent,
     DisplayBooksComponent,
+    BookSearchPipe,
 
   ],
   imports: [
@@ -43,7 +47,8 @@ import { DisplayBooksComponent } from './Components/display-books/display-books.
     MatIconModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTooltipModule
     
 
   ],

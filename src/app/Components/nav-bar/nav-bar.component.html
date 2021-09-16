@@ -6,7 +6,7 @@
         </div>
         <div>
 
-            <input type="text" placeholder="Search">
+            <input type="text" placeholder="Search" #search (keyup)="shareSeachWord(search.value)">
         </div>
     </div>
     <div fxLayout="row" fxLayoutAlign="none center">

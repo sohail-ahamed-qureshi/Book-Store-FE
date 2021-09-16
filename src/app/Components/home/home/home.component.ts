@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   GetAllBooks() {
     this.adminSerivce.GetAllBooks().subscribe((response: any) => {
       this.allBooks = response.data;
-      console.log(this.allBooks.length)
+      console.log(this.allBooks)
     })
   }
 

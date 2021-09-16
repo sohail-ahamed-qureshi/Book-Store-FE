@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/Services/dataService/data.service';
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,13 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
   isProfile = false;
-  constructor() { }
+  constructor(private dataService:DataService) { }
 
   ngOnInit(): void {
   }
 
   clickedProfile() {
     this.isProfile = !this.isProfile;
+  }
+
+  shareSeachWord(search:any){
+   this.dataService.sendSearch(search);
   }
 
 
