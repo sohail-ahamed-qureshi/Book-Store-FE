@@ -1,8 +1,8 @@
+import { CartService } from './../../Services/cartService/cart.service';
 import { DataService } from 'src/app/Services/dataService/data.service';
 import { AdminService } from './../../Services/adminService/admin.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Inject, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-book-content',
@@ -13,23 +13,28 @@ export class BookContentComponent implements OnInit {
 
   constructor(
   private route: Router,
-  private dataService: DataService) { }
+  private dataService: DataService,
+  private cartService: CartService) { }
   book:any;
   token:any;
   existingUser=false;
   ngOnInit(): void {
     //book details sharing from display books component
     this.dataService.rcvBookDetails.subscribe((data:any)=>{
-      this.book=data;
+     this.book= data;
     })
 
     // Check whether user is logged_in or signed_up
     this.token = localStorage.getItem('token');
-    if(this.token != null || this.token != ''){
-        //verify user's profile
-    }
     
+    if( this.token != null){
+        //verify user's profile
+        this.existingUser = true;
+    }
+    else{
+      this.existingUser = false;
 
+    }
 
   }
 
@@ -38,12 +43,18 @@ export class BookContentComponent implements OnInit {
   }
 
   AddToCart(){
-    if(!this.existingUser){
-      
-    }
+      let reqData ={
+        bookId: this.book.bookId,
+        quantity:1
+      }
+      this.cartService.AddToCart(reqData).subscribe((response:any)=>{
+        console.log(response);
+      })
   }
 
   AddTowishlist(){
-
+    if(this.existingUser){
+      //add item to wishlist
+    }
   }
 }

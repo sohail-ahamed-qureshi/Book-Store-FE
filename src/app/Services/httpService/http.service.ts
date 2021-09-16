@@ -17,9 +17,9 @@ export class HttpService {
     return this.http.get(this.baseUrl+url);
   }
 
-  // GetBookId(){
-  //   // return this.http.get(this.baseUrl+url)
-  // }
+  AddToCart(url:any,data:any){
+    return this.http.post(this.baseUrl+url, data);
+  }
 
   SignUp(url:any, data:any){
    return this.http.post(this.baseUrl+url, data);
