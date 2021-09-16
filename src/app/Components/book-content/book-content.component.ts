@@ -12,48 +12,55 @@ import { Component, Inject, OnInit, OnDestroy } from '@angular/core';
 export class BookContentComponent implements OnInit {
 
   constructor(
-  private route: Router,
-  private dataService: DataService,
-  private cartService: CartService) { }
-  book:any;
-  token:any;
-  existingUser=false;
+    private route: Router,
+    private dataService: DataService,
+    private cartService: CartService) { }
+  book: any;
+  token: any;
+  userData: any;
+  existingUser = false;
   ngOnInit(): void {
     //book details sharing from display books component
-    this.dataService.rcvBookDetails.subscribe((data:any)=>{
-     this.book= data;
+    this.dataService.rcvBookDetails.subscribe((data: any) => {
+      this.book = data;
     })
 
     // Check whether user is logged_in or signed_up
     this.token = localStorage.getItem('token');
-    
-    if( this.token != null){
-        //verify user's profile
+    if (this.token != null) {
+      //verify user's profile
+      this.cartService.GetDetails().subscribe((response: any) => {
+        this.userData = response.data;
+        console.log(response)
+      });
+      if (this.userData != null) {
         this.existingUser = true;
+      }
     }
-    else{
+    else {
       this.existingUser = false;
-
     }
-
+    console.log(this.existingUser);
   }
 
-  redirectToHome(){
+  redirectToHome() {
     this.route.navigateByUrl('home');
   }
 
-  AddToCart(){
-      let reqData ={
+  AddToCart() {
+    if(this.existingUser){
+      let reqData = {
         bookId: this.book.bookId,
-        quantity:1
+        quantity: 1
       }
-      this.cartService.AddToCart(reqData).subscribe((response:any)=>{
+      this.cartService.AddToCart(reqData).subscribe((response: any) => {
         console.log(response);
       })
+    }
   }
 
-  AddTowishlist(){
-    if(this.existingUser){
+  AddTowishlist() {
+    if (this.existingUser) {
       //add item to wishlist
     }
   }

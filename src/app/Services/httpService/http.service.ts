@@ -13,6 +13,10 @@ export class HttpService {
   constructor(private http: HttpClient,
   ) { }
 
+  GetDetails(url:any){
+   return this.http.get(this.baseUrl+url);
+  }
+
   GetAllBooks(url:any){
     return this.http.get(this.baseUrl+url);
   }
