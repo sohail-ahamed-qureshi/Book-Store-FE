@@ -1,6 +1,5 @@
-
-<div class="loginForm" fxLayout="column" fxLayoutAlign="center center" >
-  <form  [formGroup]="loginForm" (ngSubmit)="OnSignin()">
+<div class="loginForm" fxLayout="column wrap" >
+  <form [formGroup]="loginForm"  fxLayout="column wrap" (ngSubmit)="OnSignin()">
     <div class="inputSection" fxLayout="column wrap">
       <mat-form-field appearance="outline">
         <mat-label>Email Address</mat-label>
@@ -13,30 +12,31 @@
         <mat-label>Password</mat-label>
         <input [type]="showPwd? 'text':'password'" class="input" formControlName="password" matInput type="password"
           autocomplete="off" />
-          <mat-icon (click)="OnCheck()" *ngIf="visible"  matSuffix>visibility</mat-icon>
-          <mat-icon (click)="OnCheck()" *ngIf="!visible"  matSuffix>visibility_off</mat-icon>
-          
+        <mat-icon (click)="OnCheck()" *ngIf="visible" matSuffix>visibility</mat-icon>
+        <mat-icon (click)="OnCheck()" *ngIf="!visible" matSuffix>visibility_off</mat-icon>
+
         <mat-hint *ngIf="submitted && f.password.errors  && f.password.errors.required" class="invalid-feedback">
           <mat-icon matPrefix>error</mat-icon> Enter a valid password
         </mat-hint>
-        <mat-hint (click)="routeToForgot()" align="end" >Forgot Password?</mat-hint>
+        <mat-hint (click)="routeToForgot()" align="end">Forgot Password?</mat-hint>
       </mat-form-field>
-      
+
     </div>
     <!-- <button mat-button routerLink= "/forgotPassword" color="primary">forgot Password?</button> -->
-  
+
     <div class="buttonsPart" fxLayout="column wrap">
-      <button  class="submitBtn" mat-raised-button >
+      <button class="submitBtn" mat-raised-button>
         Login
       </button>
     </div>
   </form>
 
-  <div class="OnlineButtons"  fxLayout="column" fxLayoutAlign="space-between center">
-    <div>
+  <div class="OnlineButtons" fxLayout="column wrap" >
+    <div fxLayoutAlign="center center" >
       OR
     </div>
-    <div   fxLayout="row" fxLayoutAlign="space-between center" >
+    <div fxLayout.lt-sm="column wrap" fxLayout.gt-sm="row"
+      fxLayoutAlign.gt-sm="space-between center">
       <button class="buttons" mat-raised-button color="primary">Facebook</button>
       <button class="buttons" mat-raised-button>Google</button>
     </div>

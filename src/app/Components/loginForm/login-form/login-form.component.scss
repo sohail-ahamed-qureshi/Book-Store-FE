@@ -1,7 +1,7 @@
-.inputSection{
-    width: 300px;
-}
 
+.loginForm{
+    padding: 2% 10% 10% 10% ;
+}
 .OnlineButtons{
     padding-top:10px ;
 }
@@ -27,4 +27,10 @@ mat-icon {
   color: rgb(226, 39, 39);
   font-size: 14px;
   text-align: left;
+}
+
+@media only screen and (max-width: 599px) {
+    .buttons{
+        width: 100%;
+    }
 }
