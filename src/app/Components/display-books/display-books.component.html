@@ -6,7 +6,7 @@
         </div>
     </section>
     <section class="mainContent" fxLayout="row wrap" fxLayoutAlign="center center">
-        <div class="card" (click)="OpenBook(book)" fxLayout="column" *ngFor="let book of books | bookSearch: searchWord">
+        <div class="card" (click)="OpenBook(book)" fxLayout="column" *ngFor="let book of books | bookSearch: searchWord | paginate: { itemsPerPage: pageSize, currentPage: page, totalItems : totalLength  }">
             <div class="imagePart" fxLayoutAlign="center center">
                 <img src="{{book.image}}" alt="book image" onerror="this.onerror=null; 
                 this.src='https://res.cloudinary.com/dn1xsclq9/image/upload/v1631726343/component_m78r3t.png'">
@@ -37,8 +37,8 @@
         </div>
       
     </section>
-    <section class="pagination">
-
+    <section class="pagination" fxLayoutAlign="center" >
+        <pagination-controls class="my-pagination" (pageChange)="page = $event" ></pagination-controls>
     </section>
     <router-outlet></router-outlet>
 </section>

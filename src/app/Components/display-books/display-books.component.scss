@@ -130,3 +130,13 @@ $background-green:#388E3C;
 
 
 }
+
+.pagination{
+    padding: 2% 0 0 0;
+}
+
+ ::ng-deep .my-pagination .ngx-pagination .current {
+    background: #8F2B2F;
+    cursor: pointer;
+    
+  }

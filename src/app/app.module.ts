@@ -25,6 +25,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BookContentComponent } from './Components/book-content/book-content.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { InterceptorService } from './Services/interceptor/interceptor.service';
+import {NgxPaginationModule} from 'ngx-pagination'; 
 
 @NgModule({
   declarations: [
@@ -56,9 +57,8 @@ import { InterceptorService } from './Services/interceptor/interceptor.service';
     MatToolbarModule,
     MatTooltipModule,
     MatDialogModule,
-    MatMenuModule
-
-
+    MatMenuModule,
+    NgxPaginationModule
   ],
   providers: [
     {

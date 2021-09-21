@@ -14,6 +14,12 @@ export class DisplayBooksComponent implements OnInit {
   //all books from parent- home component
   @Input() books: any = [];
   searchWord: any;
+
+  // pagination controls
+  pageSize=12;
+  page:number=1;
+  totalLength:any;
+
   constructor(private dataService: DataService,
     private dialog: MatDialog,
     private route: Router) { }
@@ -22,6 +28,7 @@ export class DisplayBooksComponent implements OnInit {
     // search word recieved from nav-searchbar
     this.dataService.rcvSearch.subscribe((response: any) => {
       this.searchWord = response;
+      this.totalLength= response.length;
     });
   }
 
