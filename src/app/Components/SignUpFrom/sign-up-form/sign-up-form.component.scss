@@ -1,18 +1,16 @@
-.inputSection {
-    width      : 300px;
-    padding-top: -10px;
-    
+.signUpForm{
+  padding: 2% 10% 10% 10% ;
 }
 
 
 .submitBtn {
-    background-color: #A03037;
-    color           : white;
+  background-color: #A03037;
+  color           : white;
 }
 
 .invalid-feedback,
 mat-icon {
-  color: rgb(226, 39, 39);
-  font-size: 14px;
+  color     : rgb(226, 39, 39);
+  font-size : 14px;
   text-align: left;
 }
