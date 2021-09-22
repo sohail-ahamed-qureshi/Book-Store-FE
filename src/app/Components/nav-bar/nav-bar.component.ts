@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/Services/dataService/data.service';
 
 
+
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -10,14 +11,27 @@ import { DataService } from 'src/app/Services/dataService/data.service';
 })
 export class NavBarComponent implements OnInit {
   isProfile = false;
+  userName:any;
   constructor(private dataService: DataService,
-    private route: Router) { }
+    private route: Router,
+    ) { }
 
   ngOnInit(): void {
+
+    
   }
 
   clickedProfile() {
     this.isProfile = !this.isProfile;
+   let userData:any = localStorage.getItem('userData');
+   console.log(userData);
+   this.userName = userData;
+
+    
+  }
+
+  redirectToLogin(){
+    this.route.navigateByUrl('User');
   }
 
   shareSeachWord(search: any) {

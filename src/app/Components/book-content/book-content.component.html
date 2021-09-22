@@ -13,12 +13,30 @@
                 this.src='https://res.cloudinary.com/dn1xsclq9/image/upload/v1631726343/component_m78r3t.png'">
             </div>
             <div class="buttons" fxLayoutAlign="space-between center">
-                <button (click)="AddToCart()" class="btn">add to bag</button>
+                <button *ngIf="!isCart" (click)="AddToCart()" class="btn">add to bag</button>
+
+                <!-- quantity section -->
+                <div *ngIf="isCart" class="quantity" fxLayout="row" fxLayoutAlign="space-between center" >
+                    <div [ngClass]="{'disabled':isDisabled}" class="  circle decreaseQty" fxLayoutAlign="center"
+                     (click)="DecreaseQty(QtyInput)">
+                        <img src="../../../assets/remove_black_24dp.svg" alt="decreaseQty">
+                    </div>
+                    <div class="showQtyByOne">
+                    <input class="InputQty" type="number"  [(ngModel)]="QtyInput" disabled >
+                    </div>
+                    <div fxLayoutAlign="center"  class=" circle IncreaseQty" (click)="IncreaseQty(QtyInput)">
+                        <img src="../../../assets/add_black_24dp.svg" alt="IncreaseQty">
+                    </div>
+                </div>
+                <!-- quantity section -->
+
                 <button (click)="AddTowishlist()" class="btn wishlt" fxLayoutAlign="center center">
                     <span><img src="../../../assets/favorite_white_24dp.svg" alt=""></span>
                     wishlist
                 </button>
             </div>
+
+
         </div>
         <div class="bookDetails">
             <div class="basicDetails" fxLayout="column">
@@ -48,11 +66,11 @@
             </div>
             <hr>
             <div class="FeedBack">
-                <span class="heading" >Customer FeedBack</span>
+                <span class="heading">Customer FeedBack</span>
 
-                <div class="feedbackInput" fxLayout="column" >
-                    <span class="ratingHeading" >Overall Rating</span>
-                    <div class="stars" >
+                <div class="feedbackInput" fxLayout="column">
+                    <span class="ratingHeading">Overall Rating</span>
+                    <div class="stars">
                         <img src="../../../assets/star_border_black_24dp.svg" alt="rating">
                         <img src="../../../assets/star_border_black_24dp.svg" alt="rating">
                         <img src="../../../assets/star_border_black_24dp.svg" alt="rating">
@@ -60,8 +78,8 @@
                         <img src="../../../assets/star_border_black_24dp.svg" alt="rating">
                     </div>
                     <textarea name="rating" id="" cols="30" rows="5"></textarea>
-                    <div fxLayoutAlign="end center" >
-                        <button class="btn" >Submit</button>
+                    <div fxLayoutAlign="end center">
+                        <button class="btn">Submit</button>
                     </div>
                 </div>
 

@@ -9,7 +9,7 @@
         </div>
     </div>
     <div fxLayout="row" fxLayoutAlign="none center">
-        <div (click)="clickedProfile()" [mat-menu-trigger-for]="ProfileMenu" class="userProfile" fxLayout="column"
+        <div (click)="clickedProfile()" #menuTrigger="matMenuTrigger" [mat-menu-trigger-for]="ProfileMenu" class="userProfile" fxLayout="column"
             fxLayoutAlign="none center">
             <img src="../../../assets/person_white_24dp.svg" alt="userProfile">
             <p>Profile</p>
@@ -24,10 +24,10 @@
     <mat-menu class="Profile" fxLayout="column" fxLayoutAlign="center center" #ProfileMenu="matMenu" yPosition="below">
         <div class="Menu">
             <div class="menuDescription" fxLayout="column">
-                <span class="head pad" >Welcome</span>
+                <span class="head pad" >Welcome {{userName}} </span>
                 <span class=" padb" >To access account and manage orders</span>
             </div>
-            <div class="loginBtn">
+            <div (click)="redirectToLogin()" class="loginBtn">
                 login/signup
             </div>
         </div>
