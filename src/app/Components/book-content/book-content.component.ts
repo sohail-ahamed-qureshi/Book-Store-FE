@@ -94,7 +94,18 @@ export class BookContentComponent implements OnInit, OnDestroy, OnChanges {
   DecreaseQty(qty: any) {
     console.log(qty);
     if (qty > 1) {
-      this.QtyInput -= 1;
+       // after updating quantity increase qty by 1
+    let reqData = {
+      bookId: this.book.bookId,
+      quantity: -1
+    }
+    this.cartService.UpdateQuantity(reqData).subscribe((response: any) => {
+      this.QtyInput = qty - 1;
+      this.userService.openSnackBar(response.message);
+    },
+      error => {
+        this.userService.openSnackBar(error.error.message);
+      });
     }
 
   }
