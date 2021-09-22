@@ -1,17 +1,18 @@
 $blue     : #1e90ff;
 $color-red:#A03037;
 
+
 mat-toolbar {
     background: #A03037 0% 0% no-repeat padding-box;
     position  : fixed;
     top       : 0;
     width     : 100%;
     z-index   : 99;
-    padding: 0px 0px 0px 17%;
+    padding   : 0px 0px 0px 17%;
 
 }
 
-.LogoPart{
+.LogoPart {
     cursor: pointer;
 }
 
@@ -88,7 +89,7 @@ input {
         opacity       : 1;
     }
 
-    span {
+    .bottom-line {
         width        : 70%;
         height       : 5px;
         background   : #FFFFFF 0% 0% no-repeat padding-box;
@@ -113,6 +114,10 @@ input {
             border-radius : 4px;
             cursor        : pointer;
         }
+
+        .chg-width {
+            width: fit-content;
+        }
     }
 
     hr {
@@ -123,9 +128,9 @@ input {
     .MenuBtn {
         padding: 15px;
 
-        .Btn{
+        .Btn {
             text-transform: capitalize;
-            cursor: pointer;
+            cursor        : pointer;
         }
     }
 
@@ -143,7 +148,17 @@ input {
     padding-bottom: 10px;
 }
 
-.mar-r{
+.mar-r {
     margin-right: 5px;
-    opacity: .63;
+    opacity     : .63;
+}
+
+.UserName {
+    text-transform: capitalize;
+
+}
+
+.mat-badge-content {
+    background-color: #FFFFFF;
+    color           : $color-red;
 }

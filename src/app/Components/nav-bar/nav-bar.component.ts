@@ -11,27 +11,39 @@ import { DataService } from 'src/app/Services/dataService/data.service';
 })
 export class NavBarComponent implements OnInit {
   isProfile = false;
-  userName:any;
+  userName: any;
+  isLoggedIn = false;
+  badgeContent=0;
   constructor(private dataService: DataService,
     private route: Router,
-    ) { }
+  ) {
+
+   }
 
   ngOnInit(): void {
-
-    
+    this.isLoggedIn = false;
+    console.log("Logged In: "+this.isLoggedIn)
   }
 
   clickedProfile() {
     this.isProfile = !this.isProfile;
-   let userData:any = localStorage.getItem('userData');
-   console.log(userData);
-   this.userName = userData;
-
-    
+    let userData: any = localStorage.getItem('userData');
+    if (userData != '') {
+      this.userName = userData;
+      this.isLoggedIn = true;
+    } else {
+      this.isLoggedIn = false;
+    }
   }
 
-  redirectToLogin(){
+  redirectToLogin() {
     this.route.navigateByUrl('User');
+  }
+
+  redirectToLogout(){
+    this.isLoggedIn = false;
+    localStorage.clear();
+    this.redirectToHome();
   }
 
   shareSeachWord(search: any) {
@@ -44,11 +56,11 @@ export class NavBarComponent implements OnInit {
   redirectToWishlist() {
 
   }
-  redirectToCart(){
+  redirectToCart() {
 
   }
 
-  redirectToHome(){
+  redirectToHome() {
     this.route.navigateByUrl('home');
   }
 

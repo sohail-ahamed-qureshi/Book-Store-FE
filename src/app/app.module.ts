@@ -27,6 +27,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { InterceptorService } from './Services/interceptor/interceptor.service';
 import {NgxPaginationModule} from 'ngx-pagination'; 
 import { FormsModule } from '@angular/forms';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { FormsModule } from '@angular/forms';
     MatDialogModule,
     MatMenuModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    MatBadgeModule
   ],
   providers: [
     {

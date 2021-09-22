@@ -9,13 +9,14 @@
         </div>
     </div>
     <div fxLayout="row" fxLayoutAlign="none center">
-        <div (click)="clickedProfile()" #menuTrigger="matMenuTrigger" [mat-menu-trigger-for]="ProfileMenu" class="userProfile" fxLayout="column"
-            fxLayoutAlign="none center">
+        <div (click)="clickedProfile()" #menuTrigger="matMenuTrigger" [mat-menu-trigger-for]="ProfileMenu"
+            class="userProfile" fxLayout="column" fxLayoutAlign="none center">
             <img src="../../../assets/person_white_24dp.svg" alt="userProfile">
             <p>Profile</p>
-            <span *ngIf="isProfile"></span>
+            <span class="bottom-line" *ngIf="isProfile"></span>
         </div>
         <div (click)="redirectToCart()" class="cart" fxLayout="column" fxLayoutAlign="none center">
+            <span matBadgeOverlap=false [matBadge]="badgeContent" [matBadgeHidden]="badgeContent==0" matBadgeSize="small"  ></span>
             <img src="../../../assets/shopping_cart_white_24dp.svg" alt="cart">
             <p>Cart</p>
         </div>
@@ -24,11 +25,14 @@
     <mat-menu class="Profile" fxLayout="column" fxLayoutAlign="center center" #ProfileMenu="matMenu" yPosition="below">
         <div class="Menu">
             <div class="menuDescription" fxLayout="column">
-                <span class="head pad" >Welcome {{userName}} </span>
-                <span class=" padb" >To access account and manage orders</span>
+                <span class="head pad">Welcome <span *ngIf="isLoggedIn" class="UserName"> {{userName}} </span> </span>
+                <span *ngIf="!isLoggedIn" class=" padb">To access account and manage orders</span>
             </div>
-            <div (click)="redirectToLogin()" class="loginBtn">
+            <div *ngIf="!isLoggedIn" (click)="redirectToLogin()" class="loginBtn">
                 login/signup
+            </div>
+            <div *ngIf="isLoggedIn" (click)="redirectToLogout()" class="loginBtn chg-width">
+                logout
             </div>
         </div>
         <div fxLayoutAlign="center">
@@ -38,11 +42,11 @@
         <div class="MenuBtn" fxLayout="column" fxLayoutAlign="center">
             <div class="Btn padb" (click)="redirectToOrders()" fxLayoutAlign="none center">
                 <img class="mar-r" src="../../../assets/markunread_mailbox_black_24dp.svg" alt="">
-                <span > My orders </span>
+                <span> My orders </span>
             </div>
             <div class="Btn" fxLayoutAlign="none center" (click)="redirectToWishlist()">
                 <img class="mar-r" src="../../../assets/favorite_border_black_24dp.svg" alt="">
-                <span>  wishlist </span>
+                <span> wishlist </span>
             </div>
         </div>
     </mat-menu>

@@ -51,8 +51,8 @@ export class LoginFormComponent implements OnInit {
       this.loginForm.reset('');
       // store token in local storage
       localStorage.setItem('token', response.token)
-      this.router.navigateByUrl('home');
       this.UserService.openSnackBar(response.message);
+      this.router.navigateByUrl('home');
     },error =>{
       this.UserService.openSnackBar(error.error.message);
     }
