@@ -28,7 +28,8 @@ import { InterceptorService } from './Services/interceptor/interceptor.service';
 import {NgxPaginationModule} from 'ngx-pagination'; 
 import { FormsModule } from '@angular/forms';
 import {MatBadgeModule} from '@angular/material/badge';
-
+import { CartComponent } from './Components/cart/cart.component';
+import { WishlistComponent } from './Components/wishlist/wishlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,9 @@ import {MatBadgeModule} from '@angular/material/badge';
     FooterComponent,
     DisplayBooksComponent,
     BookSearchPipe,
-    BookContentComponent
+    BookContentComponent,
+    CartComponent,
+    WishlistComponent
 
 
   ],

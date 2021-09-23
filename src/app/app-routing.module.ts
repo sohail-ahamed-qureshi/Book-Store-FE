@@ -1,3 +1,5 @@
+import { AuthenticationGuard } from './authentication.guard';
+import { CartComponent } from './Components/cart/cart.component';
 import { BookContentComponent } from './Components/book-content/book-content.component';
 import { SignUpFormComponent } from './Components/SignUpFrom/sign-up-form/sign-up-form.component';
 import { LoginFormComponent } from './Components/loginForm/login-form/login-form.component';
@@ -28,7 +30,8 @@ const routes: Routes = [
       ]
   },
   { path: 'home', component: HomeComponent },
-  { path: 'Book', component: BookContentComponent }
+  { path: 'Book', component: BookContentComponent },
+  {path: 'cart', component:CartComponent, canActivate: [AuthenticationGuard]}
 
 ];
 

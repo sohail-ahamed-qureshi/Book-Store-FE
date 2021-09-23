@@ -57,7 +57,7 @@ export class NavBarComponent implements OnInit {
 
   }
   redirectToCart() {
-
+    this.route.navigateByUrl('cart');
   }
 
   redirectToHome() {

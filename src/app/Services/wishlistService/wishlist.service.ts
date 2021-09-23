@@ -1,3 +1,4 @@
+import { HttpService } from './../httpService/http.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class WishlistService {
 
-  constructor() { }
+  constructor(private http: HttpService) { }
+
+  AddToWishList(bookId:number){
+    return this.http.AddToWishlist('WishList',bookId);
+  }
 }

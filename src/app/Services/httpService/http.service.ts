@@ -43,4 +43,9 @@ export class HttpService {
   Login(url: any, data: any) {
     return this.http.post(this.baseUrl + url, data);
   }
+
+  AddToWishlist(url:any, bookId:number){
+    return this.http.post(this.baseUrl+url, bookId);
+  }
+
 }

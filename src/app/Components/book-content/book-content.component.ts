@@ -1,3 +1,4 @@
+import { WishlistService } from './../../Services/wishlistService/wishlist.service';
 import { UserService } from './../../Services/userService/user.service';
 import { CartService } from './../../Services/cartService/cart.service';
 import { DataService } from 'src/app/Services/dataService/data.service';
@@ -16,7 +17,8 @@ export class BookContentComponent implements OnInit, OnDestroy, OnChanges {
     private route: Router,
     private dataService: DataService,
     private cartService: CartService,
-    private userService: UserService) {
+    private userService: UserService,
+    private wishlistService: WishlistService) {
   }
   book: any;
   token: any;
@@ -111,8 +113,22 @@ export class BookContentComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   AddTowishlist() {
-    if (this.existingUser) {
-      //add item to wishlist
+    this.token = localStorage.getItem('token');
+    if (this.token != null) {
+       let bookId=  this.book.bookId; 
+      this.wishlistService.AddToWishList(bookId).subscribe((response: any) => {
+        //item added to cart
+        console.log(response);
+        this.userService.openSnackBar(response.message);
+      }, error => {
+        //some exception occured
+        console.log(error.message);
+        this.userService.openSnackBar(error.error.message);
+      });
+    } else {
+      //unknown user
+      this.userService.openSnackBar("Please Login/SignUp...");
+
     }
   }
 }
