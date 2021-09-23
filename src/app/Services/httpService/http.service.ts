@@ -32,6 +32,10 @@ export class HttpService {
     return this.http.post(this.baseUrl + url, data);
   }
 
+  GetAllCartItems(url: any){
+    return this.http.get(this.baseUrl + url);
+  }
+
   UpdateQuantity(url: any, data: any){
     return this.http.put(this.baseUrl+url, data);
   }

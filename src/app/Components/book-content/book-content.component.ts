@@ -2,16 +2,15 @@ import { WishlistService } from './../../Services/wishlistService/wishlist.servi
 import { UserService } from './../../Services/userService/user.service';
 import { CartService } from './../../Services/cartService/cart.service';
 import { DataService } from 'src/app/Services/dataService/data.service';
-import { AdminService } from './../../Services/adminService/admin.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Component, Inject, OnInit, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-book-content',
   templateUrl: './book-content.component.html',
   styleUrls: ['./book-content.component.scss']
 })
-export class BookContentComponent implements OnInit, OnDestroy, OnChanges {
+export class BookContentComponent implements OnInit {
 
   constructor(
     private route: Router,
@@ -29,10 +28,6 @@ export class BookContentComponent implements OnInit, OnDestroy, OnChanges {
   QtyInput = 1;
 
 
-  ngOnChanges(changes: SimpleChanges) {
-
-  }
-
   ngOnInit(): void {
     //book details sharing from display books component
     this.dataService.rcvBookDetails.subscribe((data: any) => {
@@ -44,9 +39,6 @@ export class BookContentComponent implements OnInit, OnDestroy, OnChanges {
     }
   }
 
-  ngOnDestroy() {
-
-  }
 
   redirectToHome() {
     this.route.navigateByUrl('home');
@@ -64,6 +56,8 @@ export class BookContentComponent implements OnInit, OnDestroy, OnChanges {
       this.cartService.AddToCart(reqData).subscribe((response: any) => {
         //item added to cart
         console.log(response);
+        //update the badge in navbar
+        this.dataService.sendCartUpdate(response);
         this.userService.openSnackBar(response.message);
         this.isCart = true;
       }, error => {

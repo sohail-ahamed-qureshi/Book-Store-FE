@@ -10,9 +10,17 @@ export class DataService {
   private search = new BehaviorSubject([]);
   rcvSearch = this.search.asObservable();
 
+  //for navbar-cart update
+  private CartUpdate = new BehaviorSubject([]);
+  rcvUpdate = this.CartUpdate.asObservable();
+
   private bookDetails = new BehaviorSubject([]);
   rcvBookDetails = this.bookDetails.asObservable();
   constructor() { }
+
+  sendCartUpdate(message:any){
+    this.CartUpdate.next(message);
+  }
 
   sendSearch(searchWord: any) {
     this.search.next(searchWord);

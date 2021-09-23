@@ -1,5 +1,6 @@
+import { CartService } from './../../Services/cartService/cart.service';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { DataService } from 'src/app/Services/dataService/data.service';
 
 
@@ -13,26 +14,55 @@ export class NavBarComponent implements OnInit {
   isProfile = false;
   userName: any;
   isLoggedIn = false;
-  badgeContent=0;
+  badgeContent = 0;
+  items: any = [];
+  token: any;
   constructor(private dataService: DataService,
     private route: Router,
-  ) {
-
-   }
+    private cartService: CartService
+  ) { }
 
   ngOnInit(): void {
-    this.isLoggedIn = false;
-    console.log("Logged In: "+this.isLoggedIn)
+    this.dataService.rcvUpdate.subscribe((response: any) => {
+      this.GetAllCartItems();
+    });
+    this.GetAllCartItems();
+    //check user login
+    this.token = localStorage.getItem('token');
+    if (this.token != null) {
+      this.isLoggedIn = true
+    }
+    console.log("Logged In: " + this.isLoggedIn);
+    this.CheckUserLoggedIn();
   }
+
+  CheckUserLoggedIn() {
+    // Check whether user is logged_in or signed_up
+    //verify user's profile
+    if (this.isLoggedIn) {
+      this.cartService.GetDetails().subscribe((response: any) => {
+        console.log("Login Response: " + response.success)
+        if (response.success == true) {
+          localStorage.setItem('userData', response.data.fullName);
+        }
+        else {
+          localStorage.setItem('userData', '');
+        }
+      },
+        error => {
+          console.log(error.message);
+          localStorage.setItem('userData', '');
+        }
+      );
+    }
+  }
+
+
 
   clickedProfile() {
     this.isProfile = !this.isProfile;
-    let userData: any = localStorage.getItem('userData');
-    if (userData != '') {
-      this.userName = userData;
-      this.isLoggedIn = true;
-    } else {
-      this.isLoggedIn = false;
+    if (this.isLoggedIn) {
+      this.userName = localStorage.getItem('userData');
     }
   }
 
@@ -40,10 +70,10 @@ export class NavBarComponent implements OnInit {
     this.route.navigateByUrl('User');
   }
 
-  redirectToLogout(){
+  redirectToLogout() {
     this.isLoggedIn = false;
     localStorage.clear();
-    this.redirectToHome();
+    this.badgeContent=0;
   }
 
   shareSeachWord(search: any) {
@@ -54,7 +84,7 @@ export class NavBarComponent implements OnInit {
   }
 
   redirectToWishlist() {
-
+    this.route.navigateByUrl('MyWishlist');
   }
   redirectToCart() {
     this.route.navigateByUrl('cart');
@@ -62,6 +92,13 @@ export class NavBarComponent implements OnInit {
 
   redirectToHome() {
     this.route.navigateByUrl('home');
+  }
+
+  GetAllCartItems() {
+    this.cartService.GetAllCartItems().subscribe((response: any) => {
+      this.items = response.data;
+      this.badgeContent = this.items.length;
+    })
   }
 
 

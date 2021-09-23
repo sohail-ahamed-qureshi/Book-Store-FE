@@ -1,3 +1,4 @@
+import { WishlistComponent } from './Components/wishlist/wishlist.component';
 import { AuthenticationGuard } from './authentication.guard';
 import { CartComponent } from './Components/cart/cart.component';
 import { BookContentComponent } from './Components/book-content/book-content.component';
@@ -31,7 +32,8 @@ const routes: Routes = [
   },
   { path: 'home', component: HomeComponent },
   { path: 'Book', component: BookContentComponent },
-  {path: 'cart', component:CartComponent, canActivate: [AuthenticationGuard]}
+  {path: 'cart', component:CartComponent, canActivate: [AuthenticationGuard]},
+  {path: 'MyWishlist', component:WishlistComponent, canActivate: [AuthenticationGuard]},
 
 ];
 

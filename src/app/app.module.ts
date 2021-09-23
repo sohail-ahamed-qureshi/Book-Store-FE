@@ -30,6 +30,7 @@ import { FormsModule } from '@angular/forms';
 import {MatBadgeModule} from '@angular/material/badge';
 import { CartComponent } from './Components/cart/cart.component';
 import { WishlistComponent } from './Components/wishlist/wishlist.component';
+import { DisplayItemsComponent } from './Components/display-items/display-items.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { WishlistComponent } from './Components/wishlist/wishlist.component';
     BookSearchPipe,
     BookContentComponent,
     CartComponent,
-    WishlistComponent
+    WishlistComponent,
+    DisplayItemsComponent
 
 
   ],

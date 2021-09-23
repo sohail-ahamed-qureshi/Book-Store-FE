@@ -20,4 +20,8 @@ token:any;
   UpdateQuantity(data:any){
     return this.httpService.UpdateQuantity('Cart', data);
   }
+
+  GetAllCartItems(){
+    return this.httpService.GetAllCartItems('Cart');
+  }
 }
