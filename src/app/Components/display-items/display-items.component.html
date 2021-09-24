@@ -9,16 +9,16 @@
                 Use current location
             </div>
         </div>
-        <div class="items" fxLayout="row" *ngFor="let item of items" >
+        <div class="items" fxLayout="row" *ngFor="let item of items">
             <div class="image">
                 <img src="{{item.image}}" alt="book image" onerror="this.onerror=null; 
                 this.src='https://res.cloudinary.com/dn1xsclq9/image/upload/v1631726343/component_m78r3t.png'">
             </div>
             <div class="bookDetails" fxLayout="column">
-                <span class="BookName" >{{item.bookName}}</span>
-                <span class="author" > {{item.author}} </span>
-                <span class="price" > Rs.{{item.price}} </span>
-                <div class="actionBtns" fxLayout="row" fxLayoutAlign="none center" >
+                <span class="BookName">{{item.bookName}}</span>
+                <span class="author"> {{item.author}} </span>
+                <span class="price"> Rs.{{item.price}} </span>
+                <div class="actionBtns" fxLayout="row" fxLayoutAlign="none center">
                     <div class="quantity" fxLayout="row" fxLayoutAlign="space-between center">
                         <div class="  circle decreaseQty" fxLayoutAlign="center" (click)="DecreaseQty(item)">
                             <img src="../../../assets/remove_black_24dp.svg" alt="decreaseQty">
@@ -30,22 +30,75 @@
                             <img src="../../../assets/add_black_24dp.svg" alt="IncreaseQty">
                         </div>
                     </div>
-                    <button mat-button  (click)="removeItemFromCart(item)" >
+                    <button mat-button (click)="removeItemFromCart(item)">
                         Remove
                     </button>
                 </div>
             </div>
         </div>
-        <div *ngIf="itemsCount!=0" class="ContBtn" fxLayoutAlign="end" >
-            <button >place order</button>
+        <div *ngIf="!isClicked" class="ContBtn" fxLayoutAlign="end">
+            <button (click)="ContToAddress()" >place order</button>
         </div>
     </section>
-    <section class="Address" >
+    <section class="Address">
         <div>
-            <h2>Address Details</h2>
+            <h2 *ngIf="!isClicked">Address Details</h2>
+            <div *ngIf="isClicked" fxLayout="row" fxLayoutAlign="space-between center">
+                <h2>Customer Details</h2>
+                <div class="newAddressBtn">
+                    add new address
+                </div>
+            </div>
+            <div *ngIf="isClicked" class="mainContentAddr" fxLayout="column">
+                <div fxLayout="row" class="mar-b">
+                    <div fxLayout="column" class="mar-r">
+                        <label for="fullName">Full Name</label>
+                        <input  class="wdth" value="{{userAddress.fullName}}" type="text" name="fullName" disabled>
+                    </div>
+                    <div fxLayout="column">
+                        <label for="mobile">Mobile Number</label>
+                        <input class="wdth" type="text" value="{{userAddress.mobileNumber}}" name="mobile" disabled>
+                    </div>
+                </div>
+                <div fxLayout="column" class="mar-b">
+                    <label for="address">Address</label>
+                    <textarea name="address" disabled cols="30" value="{{userAddress.addresses}}" rows="4"></textarea>
+                </div>
+                <div fxLayout="row" class="mar-b">
+                    <div fxLayout="column" class="mar-r">
+                        <label for="city">City/town</label>
+                        <input class="wdth" type="text" value="{{userAddress.city}}" name="city" disabled>
+                    </div>
+                    <div fxLayout="column">
+                        <label for="state">State</label>
+                        <input class="wdth" type="text" value="{{userAddress.state}}" name="state" disabled>
+                    </div>
+                </div>
+                <div fxLayout="column">
+                    <label for="Home" class="mar-b">Type</label>
+                    <div  fxLayout="row" fxLayoutAlign="start center">
+                        <div fxLayoutAlign="none center" class="mar-2r">
+                            <input (click)="GetAddressOfHome(home.value)" #home [checked]="isClickedHome" type="radio" id="Home" name="fav_language" value="Home">
+                              <label (click)="GetAddressOfHome(home.value)" for="Home">Home</label>
+                        </div>
+                          <div fxLayoutAlign="none center" class="mar-2r">
+                            <input type="radio" id="Work" name="fav_language" value="Work">
+                              <label for="Work">Work</label>
+                        </div>
+                          <div fxLayoutAlign="none center" >
+                            <input type="radio" id="Other" name="fav_language" value="Other">
+                              <label for="Other">Other</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="isClicked" class="ContBtn" fxLayoutAlign="end">
+                <button>continue</button>
+            </div>
         </div>
+
     </section>
-    <section class="Order" >
+    <section class="Order">
         <div>
             <h2>Order Summary</h2>
         </div>

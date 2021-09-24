@@ -1,3 +1,4 @@
+import { AddressService } from './../../Services/addressService/address.service';
 import { DataService } from 'src/app/Services/dataService/data.service';
 import { UserService } from './../../Services/userService/user.service';
 import { CartService } from './../../Services/cartService/cart.service';
@@ -13,11 +14,16 @@ export class DisplayItemsComponent implements OnInit {
   @Input() items: any = [];
   @Input() itemsCount: any;
 
+  isClicked=false;
+  userAddress:any=[];
+  isClickedHome=false;
+
   @Output() UpdateCart = new EventEmitter<any>();
   constructor(private route: Router,
     private cartService: CartService,
     private userService: UserService,
-    private DataService: DataService) { }
+    private DataService: DataService,
+    private AddressService:AddressService) { }
 
   ngOnInit(): void {
 
@@ -63,6 +69,22 @@ export class DisplayItemsComponent implements OnInit {
     this.cartService.RemoveItemfromCart(bookId).subscribe((response: any) => {
       this.userService.openSnackBar(response.message);
       this.UpdateCart.emit(response);
+    },
+      error => {
+        this.userService.openSnackBar(error.error.message);
+      });
+  }
+
+  ContToAddress(){
+    this.isClicked= true;
+    this.isClickedHome=true;
+    this.GetAddressOfHome('Home');
+
+  }
+
+  GetAddressOfHome(typeOf:any){
+    this.AddressService.GetAddressOfHome(typeOf).subscribe((response: any) => {
+      this.userAddress= response.data;
     },
       error => {
         this.userService.openSnackBar(error.error.message);

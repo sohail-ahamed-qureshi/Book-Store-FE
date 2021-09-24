@@ -56,4 +56,8 @@ export class HttpService {
     return this.http.post(this.baseUrl+url, bookId);
   }
 
+  GetAddressOfHome(url:any){
+    return this.http.get(this.baseUrl+url);
+  }
+
 }

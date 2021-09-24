@@ -32,7 +32,8 @@ export class NavBarComponent implements OnInit {
     //check user login
     this.token = localStorage.getItem('token');
     if (this.token != null) {
-      this.isLoggedIn = true
+      this.isLoggedIn = true;
+      this.userName = localStorage.getItem('userData');
     }
     console.log("Logged In: " + this.isLoggedIn);
     this.GetAllCartItems();
@@ -64,9 +65,7 @@ export class NavBarComponent implements OnInit {
 
   clickedProfile() {
     this.isProfile = !this.isProfile;
-    if (this.isLoggedIn) {
-      this.userName = localStorage.getItem('userData');
-    }
+    this.userName = localStorage.getItem('userData');
   }
 
   redirectToLogin() {
