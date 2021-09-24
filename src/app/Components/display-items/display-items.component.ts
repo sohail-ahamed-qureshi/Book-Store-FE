@@ -98,7 +98,6 @@ export class DisplayItemsComponent implements OnInit {
   }
 
   CheckOut(OrderBooks:any, userAddress:any){
-    console.log(userAddress)
     let cartId:any;
     OrderBooks.forEach((book:any) => {
       cartId=book.cartId
@@ -108,7 +107,8 @@ export class DisplayItemsComponent implements OnInit {
       AddressId: userAddress.addressId
     }
     this.OrdersService.PlaceOrder(reqData).subscribe((response:any)=>{
-      console.log(response);
+      this.DataService.sendOrderSuccessMessage(response);
+      this.route.navigateByUrl('OrderSuccess');
     },
     error=>{
       console.log(error);

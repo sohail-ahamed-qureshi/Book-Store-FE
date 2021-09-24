@@ -104,7 +104,10 @@ export class NavBarComponent implements OnInit {
   GetAllCartItems() {
     this.cartService.GetAllCartItems().subscribe((response: any) => {
       this.items = response.data;
-      this.badgeContent = this.items.length;
+      if(this.items != null){
+        this.badgeContent = this.items.length;
+      }
+      
     })
   }
 

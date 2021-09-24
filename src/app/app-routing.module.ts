@@ -1,3 +1,5 @@
+import { OrderSuccessComponent } from './Components/order-success/order-success.component';
+import { OrdersService } from './Services/OrderService/orders.service';
 import { WishlistComponent } from './Components/wishlist/wishlist.component';
 import { AuthenticationGuard } from './authentication.guard';
 import { CartComponent } from './Components/cart/cart.component';
@@ -34,7 +36,7 @@ const routes: Routes = [
   { path: 'Book', component: BookContentComponent },
   {path: 'cart', component:CartComponent, canActivate: [AuthenticationGuard]},
   {path: 'MyWishlist', component:WishlistComponent, canActivate: [AuthenticationGuard]},
-
+  {path: 'OrderSuccess', component:OrderSuccessComponent},
 ];
 
 @NgModule({

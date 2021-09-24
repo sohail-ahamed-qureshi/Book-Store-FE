@@ -31,6 +31,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { CartComponent } from './Components/cart/cart.component';
 import { WishlistComponent } from './Components/wishlist/wishlist.component';
 import { DisplayItemsComponent } from './Components/display-items/display-items.component';
+import { OrderSuccessComponent } from './Components/order-success/order-success.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { DisplayItemsComponent } from './Components/display-items/display-items.
     BookContentComponent,
     CartComponent,
     WishlistComponent,
-    DisplayItemsComponent
+    DisplayItemsComponent,
+    OrderSuccessComponent
 
 
   ],

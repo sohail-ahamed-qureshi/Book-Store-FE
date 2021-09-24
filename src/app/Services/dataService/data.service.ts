@@ -18,6 +18,10 @@ export class DataService {
   private Cart = new BehaviorSubject([]);
   Update = this.Cart.asObservable();
 
+  //Order Success Message
+  private Ordermessage = new BehaviorSubject([]);
+  rcvSuccessMessage = this.Ordermessage.asObservable();
+
   private bookDetails = new BehaviorSubject([]);
   rcvBookDetails = this.bookDetails.asObservable();
   constructor() { }
@@ -25,6 +29,10 @@ export class DataService {
 
   sendUpdate(message:any){
     this.Cart.next(message);
+  }
+
+  sendOrderSuccessMessage(message:any){
+    this.Ordermessage.next(message);
   }
 
    //for navbar-cart update

@@ -1,0 +1,51 @@
+$background-white: #ffffff;
+$background-gray : gray;
+$dull-gray       : #FAFAFA;
+$btn-primary     :#3371B5;
+$color-red       :#A03037;
+
+.main {
+    min-height: calc(100vh - 36px);
+    padding   : 8% 0;
+
+    .ContBtn {
+        margin-bottom: 1%;
+
+        button {
+            text-transform  : uppercase;
+            background-color: $btn-primary;
+            color           : $background-white;
+            width           : auto;
+            height          : 15%;
+            padding         : 6px 6px;
+            border          : none;
+            border-radius   : 4px;
+            font            : normal normal medium 14px/17px 'Lato', sans-serif;
+            cursor          : pointer;
+        }
+    }
+
+    .tableContent {
+        width: 50%;
+        margin: 2% 0;
+
+        table {
+            font-family    : 'Roboto', sans-serif;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: $dull-gray;
+        }
+
+        td,
+        th {
+            border    : 1px solid #DCDCDC;
+            text-align: center;
+            padding   : 8px;
+            word-wrap :  normal;
+        }
+    }
+
+
+}
