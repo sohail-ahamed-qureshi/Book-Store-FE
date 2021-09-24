@@ -1,3 +1,4 @@
+import { OrdersService } from './../../Services/OrderService/orders.service';
 import { AddressService } from './../../Services/addressService/address.service';
 import { DataService } from 'src/app/Services/dataService/data.service';
 import { UserService } from './../../Services/userService/user.service';
@@ -17,13 +18,18 @@ export class DisplayItemsComponent implements OnInit {
   isClicked=false;
   userAddress:any=[];
   isClickedHome=false;
+  isContinued=false;
+  isCheckout=false;
+
+  OrderBooks:any;
 
   @Output() UpdateCart = new EventEmitter<any>();
   constructor(private route: Router,
     private cartService: CartService,
     private userService: UserService,
     private DataService: DataService,
-    private AddressService:AddressService) { }
+    private AddressService:AddressService,
+    private OrdersService:OrdersService) { }
 
   ngOnInit(): void {
 
@@ -75,11 +81,38 @@ export class DisplayItemsComponent implements OnInit {
       });
   }
 
-  ContToAddress(){
+  ContToAddress(books:any){
     this.isClicked= true;
     this.isClickedHome=true;
+    this.isContinued=true;
     this.GetAddressOfHome('Home');
 
+  }
+
+  ContinueToCheckout(userAddress:any,books:any){
+    if(userAddress != null && books != null){
+      this.isCheckout=true;
+      this.isContinued=false;
+      this.OrderBooks=books;
+    } 
+  }
+
+  CheckOut(OrderBooks:any, userAddress:any){
+    console.log(userAddress)
+    let cartId:any;
+    OrderBooks.forEach((book:any) => {
+      cartId=book.cartId
+    });
+    let reqData = {
+      CartId:cartId,
+      AddressId: userAddress.addressId
+    }
+    this.OrdersService.PlaceOrder(reqData).subscribe((response:any)=>{
+      console.log(response);
+    },
+    error=>{
+      console.log(error);
+    });
   }
 
   GetAddressOfHome(typeOf:any){
