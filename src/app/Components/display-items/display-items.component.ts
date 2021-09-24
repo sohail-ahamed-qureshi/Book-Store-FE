@@ -41,7 +41,18 @@ export class DisplayItemsComponent implements OnInit {
   }
 
   DecreaseQty(book: any) {
-
+    // after updating quantity increase qty by 1
+    let reqData = {
+      bookId: book.bookId,
+      quantity: -1
+    }
+    this.cartService.UpdateQuantity(reqData).subscribe((response: any) => {
+      this.userService.openSnackBar(response.message);
+      this.UpdateCart.emit(response);
+    },
+      error => {
+        this.userService.openSnackBar(error.error.message);
+      });
   }
 
   removeItemFromCart(item: any) {
