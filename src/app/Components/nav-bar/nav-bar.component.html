@@ -27,12 +27,13 @@
             <div class="menuDescription" fxLayout="column">
                 <span class="head pad">Welcome <span *ngIf="isLoggedIn" class="UserName"> {{userName}} </span> </span>
                 <span *ngIf="!isLoggedIn" class=" padb">To access account and manage orders</span>
+                <span *ngIf="isLoggedIn" class=" padb">Buy best selling books here..</span>
             </div>
             <div *ngIf="!isLoggedIn" (click)="redirectToLogin()" class="loginBtn">
                 login/signup
             </div>
             <div *ngIf="isLoggedIn" (click)="redirectToLogout()" class="loginBtn chg-width">
-                logout
+                signout
             </div>
         </div>
         <div fxLayoutAlign="center">

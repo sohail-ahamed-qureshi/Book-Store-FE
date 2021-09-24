@@ -1,5 +1,5 @@
 import { CartService } from './../../Services/cartService/cart.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cart',
@@ -10,6 +10,10 @@ export class CartComponent implements OnInit {
 
   constructor(private CartService: CartService) { }
   cartItems:any;
+  cartItemsLength:any;
+
+  
+
   ngOnInit(): void {
     this.GetAllCartItems();
   }
@@ -18,10 +22,15 @@ export class CartComponent implements OnInit {
     this.CartService.GetAllCartItems().subscribe((response:any)=>{
       console.log(response);
       this.cartItems= response.data;
+      this.cartItemsLength= response.data.length;
     },
     error=>{
       console.log(error);
     })
+  }
+
+  ReceiveUpdate(event:any){
+    this.GetAllCartItems();
   }
 
 }

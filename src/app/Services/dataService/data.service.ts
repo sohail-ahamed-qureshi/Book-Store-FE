@@ -14,9 +14,18 @@ export class DataService {
   private CartUpdate = new BehaviorSubject([]);
   rcvUpdate = this.CartUpdate.asObservable();
 
+  //for Cart update on operations
+  private Cart = new BehaviorSubject([]);
+  Update = this.Cart.asObservable();
+
   private bookDetails = new BehaviorSubject([]);
   rcvBookDetails = this.bookDetails.asObservable();
   constructor() { }
+
+
+  sendUpdate(message:any){
+    this.Cart.next(message);
+  }
 
   sendCartUpdate(message:any){
     this.CartUpdate.next(message);

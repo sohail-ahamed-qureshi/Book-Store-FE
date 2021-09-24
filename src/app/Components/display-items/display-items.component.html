@@ -1,5 +1,40 @@
-<section>
-    <div *ngFor="let item of items">
-        <p>{{item.bookId}}</p>
-    </div>
+<section class="mainSection" fxLayout="column">
+    <section class="header">
+        <h2><span (click)="redirectToHome()">Home/</span>My cart</h2>
+    </section>
+    <section class="Mycart">
+        <div class="head" fxLayout="row" fxLayoutAlign="space-between center">
+            <h3>My cart({{itemsCount}})</h3>
+            <div class="address">
+                Use current location
+            </div>
+        </div>
+        <div class="items" fxLayout="row" *ngFor="let item of items" >
+            <div class="image">
+                <img src="{{item.image}}" alt="book image" onerror="this.onerror=null; 
+                this.src='https://res.cloudinary.com/dn1xsclq9/image/upload/v1631726343/component_m78r3t.png'">
+            </div>
+            <div class="bookDetails" fxLayout="column">
+                <span class="BookName" >{{item.bookName}}</span>
+                <span class="author" > {{item.author}} </span>
+                <span class="price" > Rs.{{item.price}} </span>
+                <div class="actionBtns" fxLayout="row" fxLayoutAlign="none center" >
+                    <div class="quantity" fxLayout="row" fxLayoutAlign="space-between center">
+                        <div class="  circle decreaseQty" fxLayoutAlign="center" (click)="DecreaseQty(item)">
+                            <img src="../../../assets/remove_black_24dp.svg" alt="decreaseQty">
+                        </div>
+                        <div class="showQtyByOne">
+                            <input class="InputQty" type="number" #QtyInput value="{{item.quantity}}" disabled>
+                        </div>
+                        <div fxLayoutAlign="center" class=" circle IncreaseQty" (click)="IncreaseQty(item)">
+                            <img src="../../../assets/add_black_24dp.svg" alt="IncreaseQty">
+                        </div>
+                    </div>
+                    <button mat-button (click)="removeItemFromCart(item)" >
+                        Remove
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
 </section>

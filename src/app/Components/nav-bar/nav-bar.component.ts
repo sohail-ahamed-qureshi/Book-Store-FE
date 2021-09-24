@@ -26,13 +26,14 @@ export class NavBarComponent implements OnInit {
     this.dataService.rcvUpdate.subscribe((response: any) => {
       this.GetAllCartItems();
     });
-    this.GetAllCartItems();
+    
     //check user login
     this.token = localStorage.getItem('token');
     if (this.token != null) {
       this.isLoggedIn = true
     }
     console.log("Logged In: " + this.isLoggedIn);
+    this.GetAllCartItems();
     this.CheckUserLoggedIn();
   }
 
@@ -72,8 +73,9 @@ export class NavBarComponent implements OnInit {
 
   redirectToLogout() {
     this.isLoggedIn = false;
-    localStorage.clear();
-    this.badgeContent=0;
+    localStorage.removeItem('token');
+    this.badgeContent = 0;
+    this.route.navigateByUrl('home');
   }
 
   shareSeachWord(search: any) {

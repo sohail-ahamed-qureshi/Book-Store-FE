@@ -1,0 +1,108 @@
+$background-white: #ffffff;
+$background-gray : gray;
+$dull-gray              : rgba(144, 143, 143, 0.75);
+
+.mainSection {
+
+    min-height: 85.7%;
+    padding   : 0% 0% 0% 17%;
+
+    .header {
+        margin-top   : 6%;
+        // padding   : 0 9%;
+
+        h2 {
+            color: black;
+
+            span {
+                color: $background-gray;
+            }
+        }
+    }
+
+    .Mycart {
+        border: 1px solid $background-gray;
+        width : 58%;
+        padding: 2% 2% 0% 2%;
+        .head{
+            color: black;
+            padding: 0% 0% 0 0;
+        }
+
+        .items{
+            margin-bottom: 5%;
+            .image{
+                width: 20%;
+            }
+
+            .bookDetails{
+
+                .BookName{
+                    font: normal normal 400 20px/15px 'Roboto',sans-serif;
+                    text-transform: capitalize;
+
+                }
+
+                .author{
+                    color: $background-gray;
+                    padding-top: 12px;
+                    font: normal normal normal 16px/12px 'Roboto',sans-serif;
+                }
+
+                .price{
+                    padding-top: 20px;
+                    font: normal normal 400 16px/12px 'Roboto',sans-serif;
+                }
+
+                .actionBtns{
+                    margin-top: 12%;
+                    .quantity{
+                        width: 30%;
+                        .circle{
+                            height          : 20px;
+                            width           : 20px;
+                            border-radius   : 50%;
+                            background-color: transparent;
+                            border          : 1px solid $dull-gray;
+                            text-align      : center;
+                            cursor          : pointer;
+                       
+                            img {
+                                width: 16px;
+                            }
+                        }
+
+                        .decreaseQty{
+                            margin-right: 5px;
+                        }
+        
+                        .IncreaseQty{
+                            margin-left: 6px;
+                        }
+
+                        .showQtyByOne {
+
+                            .InputQty {
+                                height       : 20px;
+                                width        : 100%;
+                                outline      : none;
+                                border       : 1px solid $dull-gray;
+                                border-radius: 4px;
+                                text-align   : center;
+                                font-size    : 14px;
+                                
+        
+                            }
+                        }
+
+
+                      
+                    }
+                }
+            }
+        }
+    }
+
+
+
+}

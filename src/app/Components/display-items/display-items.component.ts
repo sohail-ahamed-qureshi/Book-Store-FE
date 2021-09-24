@@ -1,4 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { UserService } from './../../Services/userService/user.service';
+import { CartService } from './../../Services/cartService/cart.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-display-items',
@@ -6,11 +9,43 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./display-items.component.scss']
 })
 export class DisplayItemsComponent implements OnInit {
-  @Input() items:any;
-  constructor() { }
+  @Input() items: any = [];
+  @Input() itemsCount: any;
+
+  @Output() UpdateCart = new EventEmitter<any>();
+  constructor(private route: Router,
+    private cartService: CartService,
+    private userService: UserService) { }
 
   ngOnInit(): void {
-    console.log(this.items)
+
+  }
+
+  redirectToHome() {
+    this.route.navigateByUrl('home');
+  }
+
+  IncreaseQty(book: any) {
+    // after updating quantity increase qty by 1
+    let reqData = {
+      bookId: book.bookId,
+      quantity: 1
+    }
+    this.cartService.UpdateQuantity(reqData).subscribe((response: any) => {
+      this.userService.openSnackBar(response.message);
+      this.UpdateCart.emit(response);
+    },
+      error => {
+        this.userService.openSnackBar(error.error.message);
+      });
+  }
+
+  DecreaseQty(book: any) {
+
+  }
+
+  removeItemFromCart(item: any) {
+
   }
 
 }
