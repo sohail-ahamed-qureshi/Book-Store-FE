@@ -30,11 +30,24 @@
                             <img src="../../../assets/add_black_24dp.svg" alt="IncreaseQty">
                         </div>
                     </div>
-                    <button mat-button (click)="removeItemFromCart(item)" >
+                    <button mat-button  (click)="removeItemFromCart(item)" >
                         Remove
                     </button>
                 </div>
             </div>
+        </div>
+        <div *ngIf="itemsCount!=0" class="ContBtn" fxLayoutAlign="end" >
+            <button >place order</button>
+        </div>
+    </section>
+    <section class="Address" >
+        <div>
+            <h2>Address Details</h2>
+        </div>
+    </section>
+    <section class="Order" >
+        <div>
+            <h2>Order Summary</h2>
         </div>
     </section>
 </section>

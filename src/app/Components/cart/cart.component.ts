@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { CartService } from './../../Services/cartService/cart.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
@@ -8,7 +9,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor(private CartService: CartService) { }
+  constructor(private CartService: CartService,
+    private route: Router) { }
   cartItems:any;
   cartItemsLength:any;
 
@@ -21,8 +23,12 @@ export class CartComponent implements OnInit {
   GetAllCartItems(){
     this.CartService.GetAllCartItems().subscribe((response:any)=>{
       console.log(response);
-      this.cartItems= response.data;
-      this.cartItemsLength= response.data.length;
+      if(response.data != null){
+        this.cartItems= response.data;
+        this.cartItemsLength= response.data.length;
+      }else{
+        this.route.navigateByUrl('home');
+      }  
     },
     error=>{
       console.log(error);

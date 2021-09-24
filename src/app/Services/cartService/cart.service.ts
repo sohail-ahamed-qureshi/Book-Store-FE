@@ -21,6 +21,10 @@ token:any;
     return this.httpService.UpdateQuantity('Cart', data);
   }
 
+  RemoveItemfromCart(bookId: any){
+    return this.httpService.RemoveItemfromCart('Cart/'+bookId);
+  }
+
   GetAllCartItems(){
     return this.httpService.GetAllCartItems('Cart');
   }

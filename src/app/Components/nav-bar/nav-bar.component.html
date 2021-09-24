@@ -12,7 +12,8 @@
         <div (click)="clickedProfile()" #menuTrigger="matMenuTrigger" [mat-menu-trigger-for]="ProfileMenu"
             class="userProfile" fxLayout="column" fxLayoutAlign="none center">
             <img src="../../../assets/person_white_24dp.svg" alt="userProfile">
-            <p>Profile</p>
+            <p *ngIf="!isLoggedIn" >Profile</p>
+            <p *ngIf="isLoggedIn" > {{userName}}</p>
             <span class="bottom-line" *ngIf="isProfile"></span>
         </div>
         <div (click)="redirectToCart()" class="cart" fxLayout="column" fxLayoutAlign="none center">

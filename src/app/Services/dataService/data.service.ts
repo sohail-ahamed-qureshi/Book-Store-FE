@@ -27,6 +27,7 @@ export class DataService {
     this.Cart.next(message);
   }
 
+   //for navbar-cart update
   sendCartUpdate(message:any){
     this.CartUpdate.next(message);
   }

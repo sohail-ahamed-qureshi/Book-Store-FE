@@ -40,6 +40,10 @@ export class HttpService {
     return this.http.put(this.baseUrl+url, data);
   }
 
+  RemoveItemfromCart(url: any){
+    return this.http.delete(this.baseUrl+url);
+  }
+
   SignUp(url: any, data: any) {
     return this.http.post(this.baseUrl + url, data);
   }

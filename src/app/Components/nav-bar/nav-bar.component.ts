@@ -1,3 +1,4 @@
+import { UserService } from './../../Services/userService/user.service';
 import { CartService } from './../../Services/cartService/cart.service';
 import { Router } from '@angular/router';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
@@ -19,7 +20,8 @@ export class NavBarComponent implements OnInit {
   token: any;
   constructor(private dataService: DataService,
     private route: Router,
-    private cartService: CartService
+    private cartService: CartService,
+    private UserService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -89,6 +91,10 @@ export class NavBarComponent implements OnInit {
     this.route.navigateByUrl('MyWishlist');
   }
   redirectToCart() {
+    if(this.badgeContent == 0){
+      this.UserService.openSnackBar('Cart is Empty');
+      return;
+    }
     this.route.navigateByUrl('cart');
   }
 
