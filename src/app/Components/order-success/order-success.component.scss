@@ -8,6 +8,17 @@ $color-red       :#A03037;
     min-height: calc(100vh - 36px);
     padding   : 8% 0;
 
+    .mainContent{
+        .OrderMessage{
+            width: 30%;
+            span{
+                text-align: center;
+                font: normal normal normal 20px/12px 'Roboto',sans-serif;
+                word-wrap: break-word;
+            }
+        }
+    }
+
     .ContBtn {
         margin-bottom: 1%;
 

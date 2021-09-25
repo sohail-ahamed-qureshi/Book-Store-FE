@@ -33,12 +33,12 @@ $background-green:#388E3C;
             padding       : 3px;
             text-align    : center;
             text-transform: uppercase;
-            font-family: 'Lato', sans-serif;
-            font-size: 10px;
+            font-family   : 'Lato', sans-serif;
+            font-size     : 10px;
             position      : absolute;
-            top: 60%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top           : 60%;
+            left          : 50%;
+            transform     : translate(-50%, -50%);
         }
     }
 
@@ -55,6 +55,8 @@ $background-green:#388E3C;
         height       : 175px;
         background   : $background-gray 0% 0% no-repeat padding-box;
         border-radius: 2px 2px 0px 0px;
+
+
     }
 
     .cardBody {
@@ -105,6 +107,7 @@ $background-green:#388E3C;
 
         .Price {
             padding: 6px 0px;
+            z-index: 33;
         }
 
         .actPrice {
@@ -131,12 +134,41 @@ $background-green:#388E3C;
 
 }
 
-.pagination{
+.pagination {
     padding: 2% 0 0 0;
 }
 
- ::ng-deep .my-pagination .ngx-pagination .current {
+::ng-deep .my-pagination .ngx-pagination .current {
     background: #8F2B2F;
-    cursor: pointer;
-    
-  }
+    cursor    : pointer;
+
+}
+
+.outOfStock {
+    position: relative;
+
+    .imagePart,
+    .cardBody {
+        opacity: 0.5;
+        z-index: 1;
+    }
+
+    .stock {
+        width           : 60%;
+        height          : 10%;
+        text-align      : center;
+        background-color: $background-white;
+        border-radius   : 2px;
+        opacity         : 1;
+        box-shadow      : rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        font            : normal normal medium 24px/20px 'Lato', sans-serif;
+        color           : #0B0203;
+        text-transform  : uppercase;
+        position        : absolute;
+        top             : 60%;
+        left            : 50%;
+        transform       : translate(-50%, -50%);
+        z-index         : 33;
+    }
+
+}

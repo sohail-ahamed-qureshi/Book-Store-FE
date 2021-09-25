@@ -6,10 +6,11 @@
         </div>
     </section>
     <section class="mainContent" fxLayout="row wrap" fxLayoutAlign="center center">
-        <div class="card" (click)="OpenBook(book)" fxLayout="column" *ngFor="let book of books | bookSearch: searchWord | paginate: { itemsPerPage: pageSize, currentPage: page, totalItems : totalLength  }">
+        <div class="card"  [ngClass]="checkForStock(book)" (click)="OpenBook(book)" fxLayout="column"
+            *ngFor="let book of books | bookSearch: searchWord | paginate: { itemsPerPage: pageSize, currentPage: page, totalItems : totalLength  }">
             <div class="imagePart" fxLayoutAlign="center center">
                 <img src="{{book.image}}" alt="book image" onerror="this.onerror=null; 
-                this.src='https://res.cloudinary.com/dn1xsclq9/image/upload/v1631726343/component_m78r3t.png'">
+                    this.src='https://res.cloudinary.com/dn1xsclq9/image/upload/v1631726343/component_m78r3t.png'">
             </div>
 
             <div class="cardBody" fxLayout="column">
@@ -26,7 +27,7 @@
                         <span>(20)</span>
                     </div>
                 </div>
-                <div class="Price" fxLayout="row" fxLayoutAlign="none center">
+                <div  class="Price" fxLayout="row" fxLayoutAlign="none center">
                     <span class="CurrPrice">Rs. {{book.price}}</span>
                     <span class="actPrice">Rs. 2000</span>
                 </div>
@@ -34,11 +35,14 @@
             <span class="quickView">
                 quick view
             </span>
+            <span *ngIf="book.quantity==0" class="stock">
+                out of stock
+            </span>
         </div>
-      
+
     </section>
-    <section class="pagination" fxLayoutAlign="center" >
-        <pagination-controls class="my-pagination" (pageChange)="page = $event" ></pagination-controls>
+    <section class="pagination" fxLayoutAlign="center">
+        <pagination-controls class="my-pagination" (pageChange)="page = $event"></pagination-controls>
     </section>
     <router-outlet></router-outlet>
 </section>

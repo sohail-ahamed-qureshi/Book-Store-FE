@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetAllBooks();
-   
   }
 
  
@@ -26,6 +25,7 @@ export class HomeComponent implements OnInit {
   GetAllBooks() {
     this.adminSerivce.GetAllBooks().subscribe((response: any) => {
       this.allBooks = response.data;
+      console.log(this.allBooks)
     })
   }
 

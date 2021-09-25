@@ -16,25 +16,30 @@ export class DisplayBooksComponent implements OnInit {
   searchWord: any;
 
   // pagination controls
-  pageSize=12;
-  page:number=1;
-  totalLength:any;
+  pageSize = 12;
+  page: number = 1;
+  totalLength: any;
+  outOfStock = false;
 
   constructor(private dataService: DataService,
-    private dialog: MatDialog,
     private route: Router) { }
   ngOnInit(): void {
 
     // search word recieved from nav-searchbar
     this.dataService.rcvSearch.subscribe((response: any) => {
       this.searchWord = response;
-      this.totalLength= response.length;
+      this.totalLength = response.length;
     });
   }
 
   OpenBook(book: any) {
     this.dataService.SendBookDetails(book);
     this.route.navigateByUrl('Book');
+  }
+
+  checkForStock(book: any) {
+    return { 'outOfStock': book.quantity == 0,
+    'stock': book.quantity == 0 };
   }
 
 
