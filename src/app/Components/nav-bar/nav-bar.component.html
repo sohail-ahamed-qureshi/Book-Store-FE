@@ -1,56 +1,73 @@
-<mat-toolbar fxFlex=100 fxLayout="row" fxLayoutAlign="space-between center">
-    <div fxLayoutGap=20px fxLayout="row" fxLayoutAlign="none center">
-        <div class="LogoPart" (click)="redirectToHome()" fxLayoutGap=8px fxLayoutAlign="none center">
-            <img class="logo" src="../../../assets/education.svg" alt="">
-            <span class="logoName">Bookstore</span>
+<div fxLayout="column" >
+    <mat-toolbar fxFlex=100 fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayoutGap=20px fxLayout="row" fxLayoutAlign="none center">
+            <div class="LogoPart" (click)="redirectToHome()" fxLayoutGap=8px fxLayoutAlign="none center">
+                <img class="logo" src="../../../assets/education.svg" alt="">
+                <span class="logoName">Bookstore</span>
+            </div>
+    
+            <div fxHide.lt-sm>
+                <input class="searchBar" type="text" placeholder="Search" #search (keyup)="shareSeachWord(search.value)">
+            </div>
+    
         </div>
-        <div>
-            <input type="text" placeholder="Search" #search (keyup)="shareSeachWord(search.value)">
+        <div fxLayout="row" fxLayoutAlign="end center" >
+    
+            <div fxHide.gt-xs (click)="isSearch=!isSearch" class="search" fxLayout="column" fxLayoutAlign="none center" >
+                <img class="imgIcon" src="../../../assets/search_white_24dp.svg" alt="search bar">
+                <p class="iconName" >Search</p>
+            </div>
+    
+            <div (click)="clickedProfile()" #menuTrigger="matMenuTrigger" [mat-menu-trigger-for]="ProfileMenu"
+                class="userProfile" fxLayout="column" fxLayoutAlign="none center">
+                <img class="imgIcon" src="../../../assets/person_white_24dp.svg" alt="userProfile">
+                <p class="iconName" *ngIf="!isLoggedIn">Profile</p>
+                <p class="iconName" *ngIf="isLoggedIn"> {{userName}}</p>
+                <span class="bottom-line" *ngIf="isProfile"></span>
+            </div>
+            <div (click)="redirectToCart()" class="cart" fxLayout="column" fxLayoutAlign="none center">
+                <span matBadgeOverlap=false [matBadge]="badgeContent" [matBadgeHidden]="badgeContent==0"
+                    matBadgeSize="small"></span>
+                <img class="imgIcon" src="../../../assets/shopping_cart_white_24dp.svg" alt="cart">
+                <p class="iconName">Cart</p>
+            </div>
         </div>
-    </div>
-    <div fxLayout="row" fxLayoutAlign="none center">
-        <div (click)="clickedProfile()" #menuTrigger="matMenuTrigger" [mat-menu-trigger-for]="ProfileMenu"
-            class="userProfile" fxLayout="column" fxLayoutAlign="none center">
-            <img src="../../../assets/person_white_24dp.svg" alt="userProfile">
-            <p *ngIf="!isLoggedIn" >Profile</p>
-            <p *ngIf="isLoggedIn" > {{userName}}</p>
-            <span class="bottom-line" *ngIf="isProfile"></span>
-        </div>
-        <div (click)="redirectToCart()" class="cart" fxLayout="column" fxLayoutAlign="none center">
-            <span matBadgeOverlap=false [matBadge]="badgeContent" [matBadgeHidden]="badgeContent==0" matBadgeSize="small"  ></span>
-            <img src="../../../assets/shopping_cart_white_24dp.svg" alt="cart">
-            <p>Cart</p>
-        </div>
-    </div>
+    
+        <mat-menu class="Profile" fxLayout="column" fxLayoutAlign="center center" #ProfileMenu="matMenu" yPosition="below">
+            <div class="Menu">
+                <div class="menuDescription" fxLayout="column">
+                    <span class="head pad">Welcome <span *ngIf="isLoggedIn" class="UserName"> {{userName}} </span> </span>
+                    <span *ngIf="!isLoggedIn" class=" padb">To access account and manage orders</span>
+                    <span *ngIf="isLoggedIn" class=" padb">Buy best selling books here..</span>
+                </div>
+                <div *ngIf="!isLoggedIn" (click)="redirectToLogin()" class="loginBtn">
+                    login/signup
+                </div>
+                <div *ngIf="isLoggedIn" (click)="redirectToLogout()" class="loginBtn chg-width">
+                    signout
+                </div>
+            </div>
+            <div fxLayoutAlign="center">
+                <hr>
+            </div>
+    
+            <div class="MenuBtn" fxLayout="column" fxLayoutAlign="center">
+                <div class="Btn padb" (click)="redirectToOrders()" fxLayoutAlign="none center">
+                    <img class="mar-r" src="../../../assets/markunread_mailbox_black_24dp.svg" alt="">
+                    <span> My orders </span>
+                </div>
+                <div class="Btn" fxLayoutAlign="none center" (click)="redirectToWishlist()">
+                    <img class="mar-r" src="../../../assets/favorite_border_black_24dp.svg" alt="">
+                    <span> wishlist </span>
+                </div>
+            </div>
+        </mat-menu>
+    
+    </mat-toolbar>
+</div>
 
-    <mat-menu class="Profile" fxLayout="column" fxLayoutAlign="center center" #ProfileMenu="matMenu" yPosition="below">
-        <div class="Menu">
-            <div class="menuDescription" fxLayout="column">
-                <span class="head pad">Welcome <span *ngIf="isLoggedIn" class="UserName"> {{userName}} </span> </span>
-                <span *ngIf="!isLoggedIn" class=" padb">To access account and manage orders</span>
-                <span *ngIf="isLoggedIn" class=" padb">Buy best selling books here..</span>
-            </div>
-            <div *ngIf="!isLoggedIn" (click)="redirectToLogin()" class="loginBtn">
-                login/signup
-            </div>
-            <div *ngIf="isLoggedIn" (click)="redirectToLogout()" class="loginBtn chg-width">
-                signout
-            </div>
-        </div>
-        <div fxLayoutAlign="center">
-            <hr>
-        </div>
 
-        <div class="MenuBtn" fxLayout="column" fxLayoutAlign="center">
-            <div class="Btn padb" (click)="redirectToOrders()" fxLayoutAlign="none center">
-                <img class="mar-r" src="../../../assets/markunread_mailbox_black_24dp.svg" alt="">
-                <span> My orders </span>
-            </div>
-            <div class="Btn" fxLayoutAlign="none center" (click)="redirectToWishlist()">
-                <img class="mar-r" src="../../../assets/favorite_border_black_24dp.svg" alt="">
-                <span> wishlist </span>
-            </div>
-        </div>
-    </mat-menu>
-
-</mat-toolbar>
+<div fxFlex=80 fxLayout="row" *ngIf="isSearch" class="searchBar-mobile" >
+    <input type="text" placeholder="Search" #search (keyup)="shareSeachWord(search.value)">
+    <img (click)="isSearch=false" src="../../../assets/close_black_24dp.svg" alt="close">
+</div>

@@ -1,4 +1,3 @@
-import { CartService } from './../../../Services/cartService/cart.service';
 import { AdminService } from './../../../Services/adminService/admin.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,11 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   allBooks: any = [];
-  items: any = [];
-  token: any;
 
-  constructor(private adminSerivce: AdminService,
-    private cartService: CartService) { }
+  constructor(private adminSerivce: AdminService) { }
 
   ngOnInit(): void {
     this.GetAllBooks();
@@ -25,7 +21,6 @@ export class HomeComponent implements OnInit {
   GetAllBooks() {
     this.adminSerivce.GetAllBooks().subscribe((response: any) => {
       this.allBooks = response.data;
-      console.log(this.allBooks)
     })
   }
 

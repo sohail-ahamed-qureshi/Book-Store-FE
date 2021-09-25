@@ -1,3 +1,4 @@
+import { DemoComponent } from './Components/demo/demo.component';
 import { OrderSuccessComponent } from './Components/order-success/order-success.component';
 import { OrdersService } from './Services/OrderService/orders.service';
 import { WishlistComponent } from './Components/wishlist/wishlist.component';
@@ -13,6 +14,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {path:'demo', component:DemoComponent},
   {
     path: 'User', component: LoginComponent,
     children:

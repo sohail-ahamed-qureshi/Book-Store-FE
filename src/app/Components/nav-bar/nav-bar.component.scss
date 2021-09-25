@@ -31,7 +31,7 @@ mat-toolbar {
     opacity       : 1;
 }
 
-input {
+.searchBar {
     outline      : none;
     border       : none;
     height       : 33px;
@@ -43,17 +43,12 @@ input {
 }
 
 .userProfile {
-    padding-top: 3%;
+    padding-top: 10%;
     cursor     : pointer;
     width      : 100px;
     height     : 100%;
 
-    img {
-        width : 31px;
-        height: 25px;
-    }
-
-    p {
+    .iconName {
         text-align    : left;
         font          : normal normal normal 10px/13px Roboto;
         letter-spacing: 0.45px;
@@ -70,24 +65,12 @@ input {
     }
 }
 
-.cart {
-    padding-top: 3%;
+.cart,
+.search {
+    padding-top: 10%;
     cursor     : pointer;
     width      : 100px;
     height     : 100%;
-
-    img {
-        width : 31px;
-        height: 25px;
-    }
-
-    p {
-        text-align    : left;
-        font          : normal normal normal 10px/13px 'Roboto', sans-serif;
-        letter-spacing: 0.45px;
-        color         : #FFFFFF;
-        opacity       : 1;
-    }
 
     .bottom-line {
         width        : 70%;
@@ -98,6 +81,19 @@ input {
     }
 
 
+}
+
+.imgIcon {
+    width : 31px;
+    height: 22px;
+}
+
+.iconName {
+    text-align    : left;
+    font          : normal normal normal 10px/13px Roboto;
+    letter-spacing: 0.45px;
+    color         : #FFFFFF;
+    opacity       : 1;
 }
 
 ::ng-deep .Profile {
@@ -161,4 +157,40 @@ input {
 .mat-badge-content {
     background-color: #FFFFFF;
     color           : $color-red;
+}
+
+
+@media only screen and (max-width:599px) {
+    mat-toolbar {
+        padding: 0px 0px 0px 20px;
+
+    }
+
+    .userProfile,
+    .cart,
+    .search {
+        width: 50px;
+    }
+}
+
+.searchBar-mobile {
+    margin: 20% auto 0% auto;
+    z-index: 33;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+    input {
+        outline      : none;
+        border       : none;
+        height       : 33px;
+        border-radius: 3px;
+        opacity      : 1;
+        padding-left : 20px;
+        width: 90%;
+       
+    }
+
+    img{
+        opacity: 0.5;
+    }
+
 }

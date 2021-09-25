@@ -13,8 +13,8 @@
                 this.src='https://res.cloudinary.com/dn1xsclq9/image/upload/v1631726343/component_m78r3t.png'">
             </div>
             <div class="buttons" fxLayoutAlign="space-between center">
-                <button *ngIf="!isCart" (click)="AddToCart()" class="btn">add to bag</button>
-
+                <button *ngIf="!isCart && !isOutOfStock" (click)="AddToCart()" class="btn">add to bag</button>
+                <button *ngIf="isOutOfStock "  class="btn">notify me</button>
                 <!-- quantity section -->
                 <div *ngIf="isCart" class="quantity" fxLayout="row" fxLayoutAlign="space-between center" >
                     <div [ngClass]="{'disabled':isDisabled}" class="  circle decreaseQty" fxLayoutAlign="center"

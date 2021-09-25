@@ -26,12 +26,15 @@ export class BookContentComponent implements OnInit {
   isCart = false;
   isDisabled = false;
   QtyInput = 1;
-
+  isOutOfStock=false;
 
   ngOnInit(): void {
     //book details sharing from display books component
     this.dataService.rcvBookDetails.subscribe((data: any) => {
       this.book = data;
+      if(this.book.quantity == 0){
+        this.isOutOfStock = true;
+      }
     });
     this.userData = localStorage.getItem('userData');
     if (this.userData != '') {

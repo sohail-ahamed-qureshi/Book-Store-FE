@@ -18,6 +18,7 @@ export class NavBarComponent implements OnInit {
   badgeContent = 0;
   items: any = [];
   token: any;
+  isSearch=false;
   constructor(private dataService: DataService,
     private route: Router,
     private cartService: CartService,
