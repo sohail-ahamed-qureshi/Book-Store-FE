@@ -1,12 +1,14 @@
-<app-nav-bar></app-nav-bar>
-<section class="mainSection" fxLayout="column">
+<div fxLayout="column" >
+    <app-nav-bar></app-nav-bar>
+<section class="mainSection" fxFlex.lt-sm=50  fxLayout="column">
     <section class="header">
         <div class="breadCrumb">
             <span> <span class="HomeBC" (click)="redirectToHome()">Home / </span>
                 Book({{book.bookId}})</span>
         </div>
     </section>
-    <section class="mainContent" fxLayout="row" fxLayoutAlign="center none">
+    <section class="mainContent" fxLayout="row" fxLayoutAlign="center none"
+     fxLayout.lt-sm="column" fxLayoutAlign.lt-sm="center center">
         <div class="imagePart" fxLayout="column" fxLayoutAlign="none center">
             <div class="image" fxLayoutAlign="center center">
                 <img src="{{book.image}}" alt="bookImage" onerror="this.onerror=null; 
@@ -88,3 +90,4 @@
         </div>
     </section>
 </section>
+</div>
