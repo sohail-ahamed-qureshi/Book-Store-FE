@@ -32,6 +32,9 @@ import { CartComponent } from './Components/cart/cart.component';
 import { WishlistComponent } from './Components/wishlist/wishlist.component';
 import { DisplayItemsComponent } from './Components/display-items/display-items.component';
 import { OrderSuccessComponent } from './Components/order-success/order-success.component';
+import { MyOrdersComponent } from './Components/my-orders/my-orders.component';
+import { AddressViewComponent } from './Components/address-view/address-view.component';
+import { OrderSummaryComponent } from './Components/order-summary/order-summary.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,11 @@ import { OrderSuccessComponent } from './Components/order-success/order-success.
     CartComponent,
     WishlistComponent,
     DisplayItemsComponent,
-    OrderSuccessComponent
+    OrderSuccessComponent,
+    MyOrdersComponent,
+    AddressViewComponent,
+    OrderSummaryComponent,
+
 
 
   ],

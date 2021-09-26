@@ -1,0 +1,21 @@
+  <section class="Order">
+        <div>
+            <h2>Order Summary</h2>
+            <div *ngIf="isCheckout"  >
+               <div fxLayout="row" *ngFor="let book of OrderBooks" >
+                <div class="image" >
+                    <img src="{{book.image}}" alt="book image" onerror="this.onerror=null; 
+                    this.src='https://res.cloudinary.com/dn1xsclq9/image/upload/v1631726343/component_m78r3t.png'">
+                </div>
+                <div class="bookDetails" fxLayout="column">
+                    <span class="BookName">{{book.bookName}}</span>
+                    <span class="author">By {{book.author}} </span>
+                    <span class="price">Rs.{{book.price}}</span>
+                </div>
+               </div>
+            </div>
+            <div *ngIf="isCheckout" (click)="CheckOut(OrderBooks, userAddress)" class="ContBtn" fxLayoutAlign="end">
+                <button>checkout</button>
+            </div>
+        </div>
+    </section>

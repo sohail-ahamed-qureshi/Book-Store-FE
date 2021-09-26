@@ -1,3 +1,4 @@
+import { MyOrdersComponent } from './Components/my-orders/my-orders.component';
 import { OrderSuccessComponent } from './Components/order-success/order-success.component';
 import { OrdersService } from './Services/OrderService/orders.service';
 import { WishlistComponent } from './Components/wishlist/wishlist.component';
@@ -8,7 +9,7 @@ import { SignUpFormComponent } from './Components/SignUpFrom/sign-up-form/sign-u
 import { LoginFormComponent } from './Components/loginForm/login-form/login-form.component';
 import { HomeComponent } from './Components/home/home/home.component';
 import { LoginComponent } from './Components/login/login/login.component';
-import { NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
@@ -34,9 +35,10 @@ const routes: Routes = [
   },
   { path: 'home', component: HomeComponent },
   { path: 'Book', component: BookContentComponent },
-  {path: 'cart', component:CartComponent, canActivate: [AuthenticationGuard]},
-  {path: 'MyWishlist', component:WishlistComponent, canActivate: [AuthenticationGuard]},
-  {path: 'OrderSuccess', component:OrderSuccessComponent},
+  { path: 'cart', component: CartComponent, canActivate: [AuthenticationGuard] },
+  { path: 'MyWishlist', component: WishlistComponent, canActivate: [AuthenticationGuard] },
+  { path: 'MyOrders', component: MyOrdersComponent, canActivate: [AuthenticationGuard] },
+  { path: 'OrderSuccess', component: OrderSuccessComponent },
 ];
 
 @NgModule({

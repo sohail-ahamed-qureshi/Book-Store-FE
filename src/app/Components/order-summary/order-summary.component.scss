@@ -1,0 +1,52 @@
+$background-white: #ffffff;
+$background-gray : gray;
+$dull-gray       : rgba(144, 143, 143, 0.75);
+$btn-primary     :#3371B5;
+$color-red       :#A03037;
+
+.Order {
+    border       : 1px solid $dull-gray;
+    width        : 58%;
+    padding      : 2% 2% 0% 2%;
+    margin-bottom: 1%;
+    .image {
+        width: 20%;
+    }
+
+    .bookDetails {
+
+        .BookName {
+            font          : normal normal 400 20px/15px 'Roboto', sans-serif;
+            text-transform: capitalize;
+
+        }
+
+        .author {
+            color      : $background-gray;
+            padding-top: 12px;
+            font       : normal normal normal 16px/12px 'Roboto', sans-serif;
+        }
+
+        .price {
+            padding-top: 20px;
+            font       : normal normal 400 16px/12px 'Roboto', sans-serif;
+        }
+    }
+}
+
+.ContBtn {
+    margin-bottom: 1%;
+
+    button {
+        text-transform  : uppercase;
+        background-color: $btn-primary;
+        color           : $background-white;
+        width           : 20%;
+        height          : 15%;
+        padding         : 6px 6px;
+        border          : none;
+        border-radius   : 4px;
+        font            : normal normal medium 14px/17px 'Lato', sans-serif;
+        cursor          : pointer;
+    }
+}

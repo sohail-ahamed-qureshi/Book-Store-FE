@@ -86,6 +86,8 @@ export class DisplayItemsComponent implements OnInit {
     this.isClickedHome=true;
     this.isContinued=true;
     this.GetAddressOfHome('Home');
+    this.DataService.sendBook(books);
+    
 
   }
 
@@ -118,6 +120,8 @@ export class DisplayItemsComponent implements OnInit {
   GetAddressOfHome(typeOf:any){
     this.AddressService.GetAddressOfHome(typeOf).subscribe((response: any) => {
       this.userAddress= response.data;
+      //share address to address view component
+      this.DataService.sendaddrDetails(response);
     },
       error => {
         this.userService.openSnackBar(error.error.message);

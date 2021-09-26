@@ -24,19 +24,55 @@ export class DataService {
 
   private bookDetails = new BehaviorSubject([]);
   rcvBookDetails = this.bookDetails.asObservable();
+
+  // shareaddress
+  private addrDetails = new BehaviorSubject([]);
+  rcvaddrDetails = this.addrDetails.asObservable();
+
+  // sharebooks
+  private shareBooks = new BehaviorSubject([]);
+  rcvbook = this.shareBooks.asObservable();
+
+
+  private addrDetails2 = new BehaviorSubject([]);
+  rcvaddrDetails2 = this.addrDetails2.asObservable();
+
+  // sharebooks
+  private shareBooks2 = new BehaviorSubject([]);
+  rcvbook2 = this.shareBooks2.asObservable();
   constructor() { }
 
+  // sharebooks
+  sendBook(message: any) {
+    this.shareBooks.next(message);
+  }
 
-  sendUpdate(message:any){
+  // shareaddress
+  sendaddrDetails(message: any) {
+    this.addrDetails.next(message);
+  }
+
+  // sharebooks
+  sendBooks2(message: any) {
+    this.shareBooks2.next(message);
+  }
+
+  // shareaddress
+  sendaddrDetails2(message: any) {
+    this.addrDetails2.next(message);
+  }
+
+
+  sendUpdate(message: any) {
     this.Cart.next(message);
   }
 
-  sendOrderSuccessMessage(message:any){
+  sendOrderSuccessMessage(message: any) {
     this.Ordermessage.next(message);
   }
 
-   //for navbar-cart update
-  sendCartUpdate(message:any){
+  //for navbar-cart update
+  sendCartUpdate(message: any) {
     this.CartUpdate.next(message);
   }
 
@@ -44,7 +80,7 @@ export class DataService {
     this.search.next(searchWord);
   }
 
-  SendBookDetails(book:any){
+  SendBookDetails(book: any) {
     this.bookDetails.next(book);
   }
 }

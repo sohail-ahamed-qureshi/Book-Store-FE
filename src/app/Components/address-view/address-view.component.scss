@@ -1,0 +1,82 @@
+$background-white: #ffffff;
+$background-gray : gray;
+$dull-gray       : rgba(144, 143, 143, 0.75);
+$btn-primary     :#3371B5;
+$color-red       :#A03037;
+
+.Address {
+    border       : 1px solid $dull-gray;
+    width        : 58%;
+    padding      : 2% 2% 0% 2%;
+    margin-bottom: 1%;
+    .newAddressBtn {
+        border        : 1px solid $color-red;
+        color         : $color-red;
+        text-transform: capitalize;
+        text-align    : center;
+        width         : 20%;
+        padding       : 6px;
+        border-radius : 4px;
+        cursor        : pointer;
+    }
+
+    .mainContentAddr {
+        padding-bottom: 10px;
+
+        input,
+        textarea {
+            outline         : none;
+            border          : 1px solid $dull-gray;
+            padding         : 4% 2%;
+            background-color: transparent;
+            color           : black;
+        }
+
+        textarea {
+            width  : 60%;
+            padding: 2% 2%;
+            font   : normal normal normal 14px/12px 'Roboto', sans-serif;
+        }
+
+        label {
+
+            font: normal normal normal 14px/12px 'Roboto', sans-serif;
+        }
+
+
+    }
+}
+
+.mar-r {
+    margin-right: 3%;
+}
+
+.mar-2r {
+    margin-right: 8%;
+}
+
+.mar-b {
+    margin-bottom: 2%;
+}
+
+.wdth {
+    width: 200px;
+}
+
+
+.ContBtn {
+    margin-bottom: 1%;
+
+    button {
+        text-transform  : uppercase;
+        background-color: $btn-primary;
+        color           : $background-white;
+        width           : 20%;
+        height          : 15%;
+        padding         : 6px 6px;
+        border          : none;
+        border-radius   : 4px;
+        font            : normal normal medium 14px/17px 'Lato', sans-serif;
+        cursor          : pointer;
+    }
+}
