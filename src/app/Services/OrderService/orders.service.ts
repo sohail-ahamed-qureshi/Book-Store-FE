@@ -11,4 +11,8 @@ export class OrdersService {
   PlaceOrder(data:any){
     return this.HttpService.PlaceOrder("Orders", data);
   }
+
+  GetAllOrders(){
+    return this.HttpService.GetAllOrders('Orders');
+  }
 }

@@ -20,7 +20,6 @@ export class CartComponent implements OnInit {
 
   GetAllCartItems(){
     this.CartService.GetAllCartItems().subscribe((response:any)=>{
-      console.log(response);
       if(response.data != null){
         this.cartItems= response.data;
         this.cartItemsLength= response.data.length;

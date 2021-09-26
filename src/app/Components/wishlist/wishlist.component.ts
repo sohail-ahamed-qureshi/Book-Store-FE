@@ -23,7 +23,7 @@ export class WishlistComponent implements OnInit {
     this.wishlistService.GetAllItemsFromWishList().subscribe((response:any)=>{
       if(response.data != null){
         this.wishlistItems=response.data;
-        this.ItemsLength=this.wishlistItems.length;
+        this.ItemsLength=response.data.length;
       }
       else{
         this.route.navigateByUrl('home');

@@ -72,4 +72,8 @@ export class HttpService {
    return this.http.delete(this.baseUrl+url); 
   }
 
+  GetAllOrders(url:any){
+    return this.http.get(this.baseUrl+url);
+  }
+
 }

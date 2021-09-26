@@ -1,1 +1,5 @@
-<p>my-orders works!</p>
+<app-nav-bar></app-nav-bar>
+<section class="mainSection" fxLayout="column">
+    <app-display-items [isMyOrdersComponent]="isMyOrdersComponent" [items]="Items" [itemsCount]="ItemsLength" ></app-display-items>
+</section>
+<app-footer></app-footer>

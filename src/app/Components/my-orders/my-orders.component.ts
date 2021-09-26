@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { OrdersService } from 'src/app/Services/OrderService/orders.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyOrdersComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private OrdersService: OrdersService,
+    private route: Router) { }
+  ItemsLength: any;
+  Items: any = [];
+  isMyOrdersComponent = true;
   ngOnInit(): void {
+    this.GetAllOrders();
+    this.isMyOrdersComponent = true;
+ 
+  }
+
+  GetAllOrders() {
+    this.OrdersService.GetAllOrders().subscribe((response: any) => {
+      if (response.data != null) {
+        this.Items = response.data;
+        this.ItemsLength = response.data.length;
+      } else {
+        this.route.navigateByUrl('home');
+      }
+    },
+      error => {
+        console.log(error);
+      })
   }
 
 }

@@ -23,9 +23,11 @@ export class DisplayItemsComponent implements OnInit {
   isCheckout=false;
 
   @Input() isWishListComponent:any;
+  @Input() isMyOrdersComponent:any;
   OrderBooks:any;
 
   @Output() UpdateCart = new EventEmitter<any>();
+  @Output() UpdateWishlist = new EventEmitter<any>();
   constructor(private route: Router,
     private cartService: CartService,
     private userService: UserService,
@@ -35,7 +37,7 @@ export class DisplayItemsComponent implements OnInit {
     private WishlistService:WishlistService) { }
 
   ngOnInit(): void {
-
+    console.log("Orders: "+this.isMyOrdersComponent)
   }
 
   redirectToHome() {
@@ -122,7 +124,7 @@ export class DisplayItemsComponent implements OnInit {
     let bookId = item.bookId;
     this.WishlistService.RemoveItemFromWishlist(bookId).subscribe((response: any) => {
       this.userService.openSnackBar(response.message);
-      this.UpdateCart.emit(response);
+      this.UpdateWishlist.emit(response);
     },
       error => {
         this.userService.openSnackBar(error.error.message);

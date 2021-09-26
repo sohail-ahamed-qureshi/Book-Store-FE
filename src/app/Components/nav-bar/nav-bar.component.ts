@@ -85,6 +85,7 @@ export class NavBarComponent implements OnInit {
   }
  
   redirectToOrders() {
+    this.route.navigateByUrl('MyOrders');
   }
 
   redirectToWishlist() {
