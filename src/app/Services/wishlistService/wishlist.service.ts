@@ -11,4 +11,8 @@ export class WishlistService {
   AddToWishList(bookId:number){
     return this.http.AddToWishlist('WishList',bookId);
   }
+
+  GetAllItemsFromWishList(){
+    return this.http.GetAllItemsFromWishList('WishList');
+  }
 }

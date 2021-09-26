@@ -1,3 +1,4 @@
+import { WishlistService } from './../../Services/wishlistService/wishlist.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WishlistComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private wishlistService: WishlistService) { }
+  wishlistItems:any=[];
+  ItemsLength:any;
   ngOnInit(): void {
+    this.GetAllItemsFromWishList()
+  }
+
+  GetAllItemsFromWishList(){
+    this.wishlistService.GetAllItemsFromWishList().subscribe((response:any)=>{
+      this.wishlistItems=response.data;
+      this.ItemsLength=this.wishlistItems.length;
+    })
   }
 
 }
