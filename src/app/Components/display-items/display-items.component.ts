@@ -1,3 +1,4 @@
+import { WishlistService } from './../../Services/wishlistService/wishlist.service';
 import { OrdersService } from './../../Services/OrderService/orders.service';
 import { AddressService } from './../../Services/addressService/address.service';
 import { DataService } from 'src/app/Services/dataService/data.service';
@@ -21,6 +22,7 @@ export class DisplayItemsComponent implements OnInit {
   isContinued=false;
   isCheckout=false;
 
+  @Input() isWishListComponent:any;
   OrderBooks:any;
 
   @Output() UpdateCart = new EventEmitter<any>();
@@ -29,7 +31,8 @@ export class DisplayItemsComponent implements OnInit {
     private userService: UserService,
     private DataService: DataService,
     private AddressService:AddressService,
-    private OrdersService:OrdersService) { }
+    private OrdersService:OrdersService,
+    private WishlistService:WishlistService) { }
 
   ngOnInit(): void {
 
@@ -87,8 +90,6 @@ export class DisplayItemsComponent implements OnInit {
     this.isContinued=true;
     this.GetAddressOfHome('Home');
     this.DataService.sendBook(books);
-    
-
   }
 
   ContinueToCheckout(userAddress:any,books:any){
@@ -115,6 +116,17 @@ export class DisplayItemsComponent implements OnInit {
     error=>{
       console.log(error);
     });
+  }
+
+  removeItemFromWishList(item:any){
+    let bookId = item.bookId;
+    this.WishlistService.RemoveItemFromWishlist(bookId).subscribe((response: any) => {
+      this.userService.openSnackBar(response.message);
+      this.UpdateCart.emit(response);
+    },
+      error => {
+        this.userService.openSnackBar(error.error.message);
+      });
   }
 
   GetAddressOfHome(typeOf:any){

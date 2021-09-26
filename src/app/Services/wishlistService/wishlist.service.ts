@@ -15,4 +15,8 @@ export class WishlistService {
   GetAllItemsFromWishList(){
     return this.http.GetAllItemsFromWishList('WishList');
   }
+
+  RemoveItemFromWishlist(bookId: any){
+    return this.http.RemoveItemFromWishlist('WishList/'+bookId);
+  }
 }

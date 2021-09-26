@@ -14,8 +14,6 @@ export class CartComponent implements OnInit {
   cartItems:any;
   cartItemsLength:any;
 
-  
-
   ngOnInit(): void {
     this.GetAllCartItems();
   }

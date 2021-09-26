@@ -68,4 +68,8 @@ export class HttpService {
     return this.http.get(this.baseUrl+url);
   }
 
+  RemoveItemFromWishlist(url: any){
+   return this.http.delete(this.baseUrl+url); 
+  }
+
 }

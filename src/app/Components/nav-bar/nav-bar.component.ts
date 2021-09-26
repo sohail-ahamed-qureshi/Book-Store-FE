@@ -83,7 +83,7 @@ export class NavBarComponent implements OnInit {
   shareSeachWord(search: any) {
     this.dataService.sendSearch(search);
   }
-
+ 
   redirectToOrders() {
   }
 
