@@ -36,6 +36,8 @@ import { MyOrdersComponent } from './Components/my-orders/my-orders.component';
 import { AddressViewComponent } from './Components/address-view/address-view.component';
 import { OrderSummaryComponent } from './Components/order-summary/order-summary.component';
 import { MyProfileComponent } from './Components/my-profile/my-profile.component';
+import { PerdonalDetailsComponent } from './Components/personal-details/perdonal-details.component';
+import { DemoComponent } from './Components/demo/demo.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { MyProfileComponent } from './Components/my-profile/my-profile.component
     AddressViewComponent,
     OrderSummaryComponent,
     MyProfileComponent,
+    PerdonalDetailsComponent,
+    DemoComponent,
 
 
 

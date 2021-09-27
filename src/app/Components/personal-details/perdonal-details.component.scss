@@ -1,0 +1,99 @@
+$btn-color-maroon:#A03037;
+$btn-color-blue  :#3371B5;
+$bkgd-gray       :#F5F5F5;
+$ft-color-gray   :#878787;
+$ft-color-black  :#0A0102;
+$inp-border      :#E2E2E2;
+$background-gray : gray;
+
+.mainSection {
+    margin-top: 6%;
+    width     : 58%;
+
+    .header {
+        h2 {
+            color: black;
+
+            span {
+                color: $background-gray;
+            }
+        }
+    }
+
+    .mainDiv {
+        width: 100%;
+
+        .headerDiv {
+            margin-bottom: 10px;
+
+            .wdth {
+                width        : 22%;
+                padding-right: 10px;
+            }
+
+            .fullwdth {
+                width: 78%;
+            }
+
+            .heading {
+                text-align    : left;
+                font          : normal normal 400 20px/24px 'Roboto', sans-serif;
+                text-transform: capitalize;
+                letter-spacing: 0px;
+                color         : #0A0102;
+                opacity       : 1;
+            }
+
+            .btn-edit {
+                color           : $btn-color-maroon;
+                border          : none;
+                font            : normal normal medium 12px/16px 'Roboto', sans-serif;
+                background-color: transparent;
+                text-transform  : capitalize;
+                cursor          : pointer;
+
+            }
+
+            .btn-save {
+                text-transform  : uppercase;
+                text-align      : center;
+                color           : white;
+                border          : none;
+                font            : normal normal 400 12px/20px 'Roboto', sans-serif;
+                background-color: $btn-color-blue;
+                border-radius   : 3px;
+                opacity         : 1;
+                width           : 112px;
+                height          : 24px;
+                cursor          : pointer;
+            }
+        }
+
+        form {
+
+            label {
+                text-transform: capitalize;
+                font          : normal normal normal 12px/16px 'Roboto', sans-serif;
+            }
+
+            input {
+                height          : 45px;
+                padding-left    : 12px;
+                outline         : none;
+                border          : 1px solid $inp-border;
+                font            : normal normal normal 16px/16px 'Roboto', sans-serif;
+                background-color: $bkgd-gray;
+                color           : $ft-color-gray;
+            }
+
+            .isEditable {
+                background-color: white;
+                color           : black;
+            }
+
+            .mar-b {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

@@ -1,3 +1,4 @@
+import { DemoComponent } from './Components/demo/demo.component';
 import { MyProfileComponent } from './Components/my-profile/my-profile.component';
 import { MyOrdersComponent } from './Components/my-orders/my-orders.component';
 import { OrderSuccessComponent } from './Components/order-success/order-success.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
       ]
   },
   { path: 'home', component: HomeComponent },
+  { path: 'demo', component: DemoComponent },
   { path: 'Book', component: BookContentComponent },
   { path: 'cart', component: CartComponent, canActivate: [AuthenticationGuard] },
   { path: 'MyWishlist', component: WishlistComponent, canActivate: [AuthenticationGuard] },
