@@ -17,6 +17,7 @@ $color-red       :#A03037;
         }
     }
 
+
     .Mycart {
 
         border       : 1px solid $dull-gray;
@@ -133,6 +134,10 @@ $color-red       :#A03037;
         width: 200px;
     }
 
+    .wdth1 {
+        min-width: calc(75% - 15%);
+    }
+
     .wdth2 {
         width: 80%;
     }
@@ -169,8 +174,21 @@ $color-red       :#A03037;
         }
     }
 
+    .greenDot{
+        background-color: #26A541;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+    .OrderPlaced{
+        font: normal normal bold 15px/12px 'Roboto',sans-serif;
+        justify-content: center;
+    }
 
-
+    
+    .fullwidth{
+        width: 80%;
+    }
 
 
 

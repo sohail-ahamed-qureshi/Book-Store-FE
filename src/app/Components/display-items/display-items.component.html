@@ -1,14 +1,15 @@
 <section class="mainSection" fxLayout="column">
     <section class="header">
-        <h2 *ngIf="!isWishListComponent && !isMyOrdersComponent" ><span (click)="redirectToHome()">Home/</span>My cart</h2>
-        <h2 *ngIf="isWishListComponent" ><span (click)="redirectToHome()">Home/</span>My wishlist</h2>
-        <h2 *ngIf="isMyOrdersComponent" ><span (click)="redirectToHome()">Home/</span>My Orders</h2>
+        <h2 *ngIf="!isWishListComponent && !isMyOrdersComponent"><span (click)="redirectToHome()">Home/</span>My cart
+        </h2>
+        <h2 *ngIf="isWishListComponent"><span (click)="redirectToHome()">Home/</span>My wishlist</h2>
+        <h2 *ngIf="isMyOrdersComponent"><span (click)="redirectToHome()">Home/</span>My Orders</h2>
     </section>
-    <section class="Mycart">
+    <section class="Mycart" [ngClass]="{fullwidth:isMyOrdersComponent}" >
         <div class="head" fxLayout="row" fxLayoutAlign="space-between center">
-            <h3 *ngIf="!isWishListComponent && !isMyOrdersComponent" >My cart({{itemsCount}})</h3>
-            <h3 *ngIf="isWishListComponent" >My wishlist({{itemsCount}})</h3>
-            <h3 *ngIf="isMyOrdersComponent" >My Orders({{itemsCount}})</h3>
+            <h3 *ngIf="!isWishListComponent && !isMyOrdersComponent">My cart({{itemsCount}})</h3>
+            <h3 *ngIf="isWishListComponent">My wishlist({{itemsCount}})</h3>
+            <h3 *ngIf="isMyOrdersComponent">My Orders({{itemsCount}})</h3>
             <div *ngIf="!isWishListComponent && !isMyOrdersComponent" class="address">
                 Use current location
             </div>
@@ -18,11 +19,13 @@
                 <img src="{{item.image}}" alt="book image" onerror="this.onerror=null; 
                 this.src='https://res.cloudinary.com/dn1xsclq9/image/upload/v1631726343/component_m78r3t.png'">
             </div>
-            <div class="bookDetails " [ngClass]="{wdth2:isWishListComponent}" fxLayout="column">
+            <div class="bookDetails " [ngClass]="{wdth2:isWishListComponent, wdth1: isMyOrdersComponent}"
+                fxLayout="column">
                 <span class="BookName">{{item.bookName}}</span>
                 <span class="author"> {{item.author}} </span>
                 <span class="price"> Rs.{{item.price}} </span>
-                <div *ngIf="!isWishListComponent && !isMyOrdersComponent" class="actionBtns" fxLayout="row" fxLayoutAlign="none center">
+                <div *ngIf="!isWishListComponent && !isMyOrdersComponent" class="actionBtns" fxLayout="row"
+                    fxLayoutAlign="none center">
                     <div class="quantity" fxLayout="row" fxLayoutAlign="space-between center">
                         <div class="  circle decreaseQty" fxLayoutAlign="center" (click)="DecreaseQty(item)">
                             <img src="../../../assets/remove_black_24dp.svg" alt="decreaseQty">
@@ -39,8 +42,12 @@
                     </button>
                 </div>
             </div>
-            <div class="wishlist" *ngIf="isWishListComponent"  (click)="removeItemFromWishList(item)">
-               <img src="../../../assets/delete_black_24dp.svg"  alt="remove">
+            <div class="wishlist" *ngIf="isWishListComponent" (click)="removeItemFromWishList(item)">
+                <img src="../../../assets/delete_black_24dp.svg" alt="remove">
+            </div>
+            <div *ngIf="isMyOrdersComponent" class="OrderPlaced" fxLayout="row" >
+                <div class="greenDot"></div>
+                <div> Order placed on <span> {{item.orderDate | date : 'MMMM dd'}} </span></div>
             </div>
         </div>
         <div *ngIf="!isClicked && !isWishListComponent  && !isMyOrdersComponent" class="ContBtn" fxLayoutAlign="end">

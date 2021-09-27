@@ -25,6 +25,7 @@ export class MyOrdersComponent implements OnInit {
       if (response.data != null) {
         this.Items = response.data;
         this.ItemsLength = response.data.length;
+        console.log(this.Items)
       } else {
         this.route.navigateByUrl('home');
       }

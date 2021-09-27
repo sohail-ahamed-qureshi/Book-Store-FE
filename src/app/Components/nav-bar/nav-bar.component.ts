@@ -62,6 +62,10 @@ export class NavBarComponent implements OnInit {
     }
   }
 
+  redirectToProfile(){
+    this.route.navigateByUrl('MyProfile');
+  }
+
 
 
   clickedProfile() {

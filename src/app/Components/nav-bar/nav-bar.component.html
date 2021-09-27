@@ -33,25 +33,27 @@
             </div>
         </div>
     
-        <mat-menu class="Profile" fxLayout="column" fxLayoutAlign="center center" #ProfileMenu="matMenu" yPosition="below">
+        <mat-menu class="Profile"  fxLayout="column" fxLayoutAlign="center center" #ProfileMenu="matMenu" yPosition="below">
             <div class="Menu">
                 <div class="menuDescription" fxLayout="column">
-                    <span class="head pad">Welcome <span *ngIf="isLoggedIn" class="UserName"> {{userName}} </span> </span>
+                    <span class="head pad" *ngIf="!isLoggedIn" >Welcome</span>
+                    <span *ngIf="isLoggedIn" class="head UserName">Hi {{userName}},</span>
                     <span *ngIf="!isLoggedIn" class=" padb">To access account and manage orders</span>
-                    <span *ngIf="isLoggedIn" class=" padb">Buy best selling books here..</span>
                 </div>
                 <div *ngIf="!isLoggedIn" (click)="redirectToLogin()" class="loginBtn">
                     login/signup
                 </div>
-                <div *ngIf="isLoggedIn" (click)="redirectToLogout()" class="loginBtn chg-width">
-                    signout
-                </div>
+                
             </div>
-            <div fxLayoutAlign="center">
+            <div *ngIf="!isLoggedIn" fxLayoutAlign="center">
                 <hr>
             </div>
     
-            <div class="MenuBtn" fxLayout="column" fxLayoutAlign="center">
+            <div class="MenuBtn" [ngClass]="{wdth:isLoggedIn}" fxLayout="column" fxLayoutAlign="center">
+                <div *ngIf="isLoggedIn" class="Btn padb" (click)="redirectToProfile()" fxLayoutAlign="none center">
+                    <img class="mar-r" src="../../../assets/person_black_24dp.svg" alt="">
+                    <span> My Profile </span>
+                </div>
                 <div class="Btn padb" (click)="redirectToOrders()" fxLayoutAlign="none center">
                     <img class="mar-r" src="../../../assets/markunread_mailbox_black_24dp.svg" alt="">
                     <span> My orders </span>
@@ -60,7 +62,11 @@
                     <img class="mar-r" src="../../../assets/favorite_border_black_24dp.svg" alt="">
                     <span> wishlist </span>
                 </div>
+                <div *ngIf="isLoggedIn"  [ngClass]="{wdth2:isLoggedIn}" (click)="redirectToLogout()" class="loginBtn chg-width">
+                    signout
+                </div>
             </div>
+            
         </mat-menu>
     
     </mat-toolbar>

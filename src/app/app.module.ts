@@ -35,6 +35,7 @@ import { OrderSuccessComponent } from './Components/order-success/order-success.
 import { MyOrdersComponent } from './Components/my-orders/my-orders.component';
 import { AddressViewComponent } from './Components/address-view/address-view.component';
 import { OrderSummaryComponent } from './Components/order-summary/order-summary.component';
+import { MyProfileComponent } from './Components/my-profile/my-profile.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { OrderSummaryComponent } from './Components/order-summary/order-summary.
     MyOrdersComponent,
     AddressViewComponent,
     OrderSummaryComponent,
+    MyProfileComponent,
 
 
 
