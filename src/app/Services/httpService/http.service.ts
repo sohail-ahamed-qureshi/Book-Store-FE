@@ -76,4 +76,8 @@ export class HttpService {
     return this.http.get(this.baseUrl+url);
   }
 
+  UpdateUserDetails(url:any, data:any){
+   return this.http.put(this.baseUrl+url, data);
+  }
+
 }

@@ -15,6 +15,10 @@ export class UserService {
       duration: this.durationInSeconds* 1000,
     });
   }
+
+  UpdateUserDetails(data:any){
+    return this.HttpService.UpdateUserDetails('User/UpdateDetails', data);
+  }
   
   SignUp(data:any){
     return this.HttpService.SignUp("User/Register",data);

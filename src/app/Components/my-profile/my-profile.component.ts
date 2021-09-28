@@ -1,3 +1,4 @@
+import { CartService } from './../../Services/cartService/cart.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-profile.component.scss']
 })
 export class MyProfileComponent implements OnInit {
-
-  constructor() { }
+  user:any=[];
+  constructor(private cartService:CartService) { }
 
   ngOnInit(): void {
+    // this.GetUserDetails();
   }
+
+  // GetUserDetails() {
+  //   this.cartService.GetDetails().subscribe((response: any) => {
+  //     this.user = response.data;
+  //     console.log(this.user)
+  //   });
+  // }
 
 }

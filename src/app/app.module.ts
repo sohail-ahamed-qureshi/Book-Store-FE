@@ -37,7 +37,6 @@ import { AddressViewComponent } from './Components/address-view/address-view.com
 import { OrderSummaryComponent } from './Components/order-summary/order-summary.component';
 import { MyProfileComponent } from './Components/my-profile/my-profile.component';
 import { PerdonalDetailsComponent } from './Components/personal-details/perdonal-details.component';
-import { DemoComponent } from './Components/demo/demo.component';
 
 @NgModule({
   declarations: [
@@ -60,10 +59,6 @@ import { DemoComponent } from './Components/demo/demo.component';
     OrderSummaryComponent,
     MyProfileComponent,
     PerdonalDetailsComponent,
-    DemoComponent,
-
-
-
   ],
   imports: [
     BrowserModule,

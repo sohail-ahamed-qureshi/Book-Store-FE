@@ -13,6 +13,8 @@ token:any;
     return  this.httpService.GetDetails('User/GetDetails');
   }
 
+  
+
   AddToCart(data:any){
     return this.httpService.AddToCart('Cart', data);
   }

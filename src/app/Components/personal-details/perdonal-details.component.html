@@ -9,11 +9,12 @@
             </div>
             <div class="fullwdth" fxLayout="row wrap" fxLayoutAlign="space-between end">
                 <div>
-                    <button *ngIf="!editable" (click)="editable=true" class="btn-edit">Edit</button>
-                    <button *ngIf="editable" (click)="editable=false" class="btn-edit">cancel</button>
+                    <button *ngIf="!editable" (click)="editable = true;" class="btn-edit">Edit</button>
+                    <button *ngIf="editable" (click)="initialize()" class="btn-edit">cancel</button>
                 </div>
                 <div *ngIf="editable" fxLayoutAlign="none start">
-                    <button class="btn-save">save</button>
+                    <button (click)="UpdateChanges(fullName.value,email.value,password.value,mobile.value)"
+                        class="btn-save">save</button>
                 </div>
             </div>
         </div>
@@ -22,19 +23,22 @@
             <form>
                 <div class="mar-b" fxLayout="column wrap">
                     <label for="fName">full name</label>
-                    <input [ngClass]="{isEditable:editable}" [disabled]="!editable" value="{{user.fullName}}" type="text" name="fName">
+                    <input #fullName value="{{user.fullName}}" [ngClass]="{isEditable:editable}" [disabled]="!editable" type="text"
+                        name="fullName">
                 </div>
                 <div class="mar-b" fxLayout="column wrap">
                     <label for="Email">Email</label>
-                    <input [ngClass]="{isEditable:editable}" [disabled]="!editable" value="{{user.email}}" type="text" name="Email">
+                    <input #email value="{{user.email}}" [ngClass]="{isEditable:editable}"  [disabled]="!editable" type="text" name="email">
                 </div>
                 <div class="mar-b" fxLayout="column wrap">
                     <label for="password">Password</label>
-                    <input [ngClass]="{isEditable:editable}" [disabled]="!editable" value="{{user.password}}" type="password" name="password">
+                    <input #password value="{{user.password}}" [ngClass]="{isEditable:editable}"  [disabled]="!editable" type="password"
+                        name="password">
                 </div>
                 <div class="mar-b" fxLayout="column wrap">
                     <label for="mobile">Mobile Number</label>
-                    <input [ngClass]="{isEditable:editable}" [disabled]="!editable" value="{{user.mobileNumber}}" type="number" name="mobile">
+                    <input #mobile value="{{user.mobileNumber}}" [ngClass]="{isEditable:editable}"  [disabled]="!editable" type="number"
+                        name="mobile">
                 </div>
             </form>
         </div>
