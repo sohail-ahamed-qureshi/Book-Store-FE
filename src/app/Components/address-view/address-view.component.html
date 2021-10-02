@@ -1,14 +1,40 @@
-<section class="Address">
+<section class="Address" [ngClass]="{isCart:!isProfileComponent}">
     <div>
-        <h2 *ngIf="!isClicked">Address Details</h2>
-        <div *ngIf="isClicked" fxLayout="row" fxLayoutAlign="space-between center">
-            <h2>Customer Details</h2>
-            <div *ngIf="isContinued" class="newAddressBtn">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <h2 *ngIf="!isClicked || isProfileComponent ">Address Details</h2>
+            <!-- display add new address button in profile component only -->
+            <div *ngIf="isProfileComponent" class="newAddressBtn">
                 add new address
             </div>
         </div>
-        <div *ngIf="isClicked" class="mainContentAddr" fxLayout="column">
-            <div fxLayout="row" class="mar-b">
+        <div *ngIf="isClicked || isProfileComponent" fxLayout="row" fxLayoutAlign="space-between center">
+            <!-- display in cart component only -->
+            <h2 *ngIf="!isProfileComponent">Customer Details</h2>
+            <div *ngIf="isContinued && !isProfileComponent" class="newAddressBtn">
+                add new address
+            </div>
+        </div>
+        <!-- display in profile component only -->
+
+        <div *ngIf="isProfileComponent" class="headerDiv" fxLayout="row wrap" fxLayoutAlign="none end">
+            <div class="wdth">
+                <span class="heading" *ngIf="isClickedHome">1.Home</span>
+                <span class="heading" *ngIf="isClickedWork">2.Work</span>
+                <span class="heading" *ngIf="isClickedOthers">3.Others</span>
+            </div>
+            <div class="fullwdth" fxLayout="row wrap" fxLayoutAlign="space-between end">
+                <div>
+                    <button *ngIf="!editable" (click)="editable = true;" class="btn-edit">Edit</button>
+                    <button *ngIf="editable" (click)="initialize()" class="btn-edit">cancel</button>
+                </div>
+                <div *ngIf="editable" fxLayoutAlign="none start">
+                    <button class="btn-save">save</button>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="isClicked || isProfileComponent" class="mainContentAddr" fxLayout="column">
+            <div *ngIf="!isProfileComponent" fxLayout="row" class="mar-b">
                 <div fxLayout="column" class="mar-r">
                     <label for="fullName">Full Name</label>
                     <input class="wdth" value="{{userAddress.fullName}}" type="text" name="fullName" disabled>
@@ -36,16 +62,16 @@
                 <label for="Home" class="mar-b">Type</label>
                 <div fxLayout="row" fxLayoutAlign="start center">
                     <div fxLayoutAlign="none center" class="mar-2r">
-                        <input (click)="GetAddressOfHome(home.value)" #home [checked]="isClickedHome" type="radio"
-                            id="Home" name="fav_language" value="Home">
-                          <label (click)="GetAddressOfHome(home.value)" for="Home">Home</label>
+                        <input (click)="GetAddress(home.value)" #home [checked]="isClickedHome" type="radio" id="Home"
+                            name="fav_language" value="Home">
+                          <label (click)="GetAddress(home.value)" for="Home">Home</label>
                     </div>
-                      <div fxLayoutAlign="none center" class="mar-2r">
-                        <input type="radio" id="Work" name="fav_language" value="Work">
+                      <div (click)="GetAddress(work.value)" fxLayoutAlign="none center" class="mar-2r">
+                        <input type="radio" id="Work" #work name="fav_language" value="Work">
                           <label for="Work">Work</label>
                     </div>
-                      <div fxLayoutAlign="none center">
-                        <input type="radio" id="Other" name="fav_language" value="Other">
+                      <div (click)="GetAddress(other.value)" fxLayoutAlign="none center">
+                        <input type="radio" #other id="Other" name="fav_language" value="Other">
                           <label for="Other">Other</label>
                     </div>
                 </div>

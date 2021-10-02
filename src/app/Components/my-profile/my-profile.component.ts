@@ -7,18 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-profile.component.scss']
 })
 export class MyProfileComponent implements OnInit {
-  user:any=[];
   constructor(private cartService:CartService) { }
-
+  isProfileComponent=true;
+  isClicked=true;
   ngOnInit(): void {
-    // this.GetUserDetails();
+    
   }
-
-  // GetUserDetails() {
-  //   this.cartService.GetDetails().subscribe((response: any) => {
-  //     this.user = response.data;
-  //     console.log(this.user)
-  //   });
-  // }
 
 }

@@ -1,7 +1,7 @@
 <app-nav-bar></app-nav-bar>
 <section class="mainSection" fxLayout="column">
-    <app-display-items [items]="cartItems" [itemsCount]="cartItemsLength" (UpdateCart)="ReceiveUpdate($event)"  ></app-display-items>
-    <app-address-view></app-address-view>
+    <app-display-items  [items]="cartItems" [itemsCount]="cartItemsLength" (UpdateCart)="ReceiveUpdate($event)"  ></app-display-items>
+    <app-address-view [isProfileComponent]="isProfileComponent" ></app-address-view>
     <app-order-summary></app-order-summary>
 </section>
 <app-footer></app-footer>

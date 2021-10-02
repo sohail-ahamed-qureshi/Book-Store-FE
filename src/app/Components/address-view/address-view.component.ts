@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AddressService } from 'src/app/Services/addressService/address.service';
 import { DataService } from 'src/app/Services/dataService/data.service';
 import { UserService } from 'src/app/Services/userService/user.service';
@@ -12,8 +12,12 @@ export class AddressViewComponent implements OnInit {
   isClicked=false;
   isContinued=false;
   isClickedHome=false;
+  isClickedWork=false;
+  isClickedOthers=false;
+  editable=false;
   userAddress:any=[];
   items:any=[];
+  @Input() isProfileComponent:any;
   constructor(
     private userService: UserService,
     private dataService: DataService,
@@ -33,17 +37,44 @@ export class AddressViewComponent implements OnInit {
     // recieve books from display-items component
     this.dataService.rcvbook.subscribe((response:any)=>{
       this.items=response;
-    })
+    });
+
+    //trigger GetAddressOfHome on profile Component
+    if(this.isProfileComponent){
+      this.GetAddress('Home');
+    }
   }
 
-  GetAddressOfHome(typeOf:any){
-    this.addressService.GetAddressOfHome(typeOf).subscribe((response: any) => {
+  GetAddress(typeOf:any){
+    console.log(typeOf);
+    if(typeOf === 'Home'){
+      this.isClickedHome = true;
+      this.isClickedWork = false;
+      this.isClickedOthers = false;
+    }
+    else if(typeOf === 'Work'){
+      this.isClickedHome = false;
+      this.isClickedOthers = false;
+      this.isClickedWork = true;
+    }
+    else{
+      this.isClickedHome = false;
+      this.isClickedWork = false;
+      this.isClickedOthers = true;
+    }
+    this.addressService.GetAddress(typeOf).subscribe((response: any) => {
       this.userAddress= response.data;
+      console.log(response)
     },
-      error => {
+      (error:any) => {
         this.userService.openSnackBar(error.error.message);
       });
   }
+
+  initialize(){
+    
+  }
+
 
   ContinueToCheckout(userAddress:any,books:any){
     if(userAddress != null && books != null){

@@ -132,7 +132,7 @@ export class DisplayItemsComponent implements OnInit {
   }
 
   GetAddressOfHome(typeOf:any){
-    this.AddressService.GetAddressOfHome(typeOf).subscribe((response: any) => {
+    this.AddressService.GetAddress(typeOf).subscribe((response: any) => {
       this.userAddress= response.data;
       //share address to address view component
       this.DataService.sendaddrDetails(response);

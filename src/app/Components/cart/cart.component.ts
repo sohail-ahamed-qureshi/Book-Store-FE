@@ -13,6 +13,7 @@ export class CartComponent implements OnInit {
     private route: Router) { }
   cartItems:any;
   cartItemsLength:any;
+  isProfileComponent=false;
 
   ngOnInit(): void {
     this.GetAllCartItems();

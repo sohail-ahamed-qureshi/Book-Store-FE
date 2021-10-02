@@ -8,7 +8,8 @@ export class AddressService {
 
   constructor(private HttpService: HttpService) { }
 
-  GetAddressOfHome(typeOf:any){
-    return this.HttpService.GetAddressOfHome('Address/'+typeOf);
+  GetAddress(typeOf:any){
+    return this.HttpService.GetAddress('Address/'+typeOf);
   }
+
 }

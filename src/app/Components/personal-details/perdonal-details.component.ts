@@ -1,8 +1,7 @@
 import { UserService } from 'src/app/Services/userService/user.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CartService } from './../../Services/cartService/cart.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-perdonal-details',
@@ -11,28 +10,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PerdonalDetailsComponent implements OnInit {
   editable = false;
-   user: any = [];
+  user: any = [];
   fullName: any;
   email: any;
   password: any;
   mobile: any;
-  DetailsForm!: FormGroup;
 
   constructor(private cartService: CartService,
     private route: Router,
     private userService: UserService,
-    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
-
-     this.GetUserDetails();
-    // this.DetailsForm = this.formBuilder.group({
-    //   fullName: this.user.fullName,
-    //   email: ['', Validators.required],
-    //   password: ['', Validators.required],
-    //   mobile: ['', Validators.required]
-    // });
+    this.GetUserDetails();
   }
 
   initialize() {
@@ -47,7 +37,7 @@ export class PerdonalDetailsComponent implements OnInit {
     this.route.navigateByUrl('home');
   }
 
-  UpdateChanges(fullName:any, email:any, password:any, mobile:any) {
+  UpdateChanges(fullName: any, email: any, password: any, mobile: any) {
     let reqData = {
       fullName: fullName,
       email: email,
@@ -64,9 +54,7 @@ export class PerdonalDetailsComponent implements OnInit {
         this.userService.openSnackBar(error.message);
         this.initialize();
         console.log(error);
-      })
-
-
+      });
   }
 
   GetUserDetails() {
