@@ -1,11 +1,11 @@
 <div class="main">
     <app-nav-bar></app-nav-bar>
-    <div class="mainContent" fxLayout="column" fxLayoutAlign="center center">
-        <div>
+    <div class="mainContent" fxLayout="column" fxLayoutAlign="start center" fxLayoutAlign.lt-sm="start center">
+        <div class="image">
             <img src="../../../assets/orderSuccess.png" alt="Order SuccessFull">
         </div>
         <div class="OrderMessage">
-            <span> {{message}}</span>
+            <span> {{message}} </span>
         </div>
         <div class="tableContent">
             <table>
@@ -23,7 +23,7 @@
             </table>
         </div>
         <div class="ContBtn">
-            <button (click)="redirectToHome()" >Continue Shopping</button>
+            <button (click)="redirectToHome()">Continue Shopping</button>
         </div>
     </div>
 </div>
