@@ -18,7 +18,9 @@ export class NavBarComponent implements OnInit {
   badgeContent = 0;
   items: any = [];
   token: any;
+  role:any;
   isSearch=false;
+  isAdmin=false;
   constructor(private dataService: DataService,
     private route: Router,
     private cartService: CartService,
@@ -37,6 +39,13 @@ export class NavBarComponent implements OnInit {
       this.userName = localStorage.getItem('userData');
     }
     console.log("Logged In: " + this.isLoggedIn);
+
+    //check for user role
+    this.role = localStorage.getItem('Role');
+    if(this.role == 'Admin'){
+      this.isAdmin = true;
+    }
+
     this.GetAllCartItems();
     this.CheckUserLoggedIn();
   }
@@ -64,6 +73,10 @@ export class NavBarComponent implements OnInit {
 
   redirectToProfile(){
     this.route.navigateByUrl('MyProfile');
+  }
+
+  redirectToBooks(){
+    
   }
 
 

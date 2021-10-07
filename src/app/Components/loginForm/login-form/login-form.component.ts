@@ -49,6 +49,8 @@ export class LoginFormComponent implements OnInit {
     this.UserService.Login(requestPayload).subscribe((response:any)=>{
       console.log(response);
       this.loginForm.reset('');
+      //check for role
+      localStorage.setItem('Role', response.data.role)
       // store token in local storage
       localStorage.setItem('token', response.token)
       this.UserService.openSnackBar(response.message);
@@ -56,7 +58,7 @@ export class LoginFormComponent implements OnInit {
     },error =>{
       this.UserService.openSnackBar(error.error.message);
     }
-    )
+    );
    
   }
 
