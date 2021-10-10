@@ -6,7 +6,7 @@ $color-red       :#A03037;
 
 .mainSection {
     .header {
-        margin-top   : 6%;
+        margin-top: 6%;
 
         h2 {
             color: black;
@@ -15,6 +15,9 @@ $color-red       :#A03037;
                 color: $background-gray;
             }
         }
+
+
+
     }
 
 
@@ -28,6 +31,25 @@ $color-red       :#A03037;
         .head {
             color  : black;
             padding: 0% 0% 0 0;
+
+            .btn {
+                border        : 1px solid $color-red;
+                color         : $color-red;
+                text-transform: uppercase;
+                width         : 150px;
+                padding       : 5px;
+                margin        : 10px 0px 0px 0px;
+                border-radius : 4px;
+                cursor        : pointer;
+                text-align    : center;
+                transition    : 0.3s ease-in;
+
+                &:hover {
+                    background-color: $color-red;
+                    border          : #ffffff;
+                    color           : #ffffff;
+                }
+            }
         }
 
         .items {
@@ -85,7 +107,7 @@ $color-red       :#A03037;
                         }
 
                         .showQtyByOne {
-                            
+
                             .InputQty {
                                 height       : 20px;
                                 width        : 100%;
@@ -97,6 +119,25 @@ $color-red       :#A03037;
                             }
                         }
                     }
+                }
+            }
+
+            .btn2 {
+                border        : 1px solid $color-red;
+                color         : $color-red;
+                text-transform: uppercase;
+                width         : 150px;
+                padding       : 5px;
+                margin        : 10px 0px 0px 0px;
+                border-radius : 4px;
+                cursor        : pointer;
+                text-align    : center;
+                transition    : 0.3s ease-in;
+
+                &:hover {
+                    background-color: $color-red;
+                    border          : #ffffff;
+                    color           : #ffffff;
                 }
             }
         }
@@ -118,6 +159,11 @@ $color-red       :#A03037;
             cursor          : pointer;
         }
     }
+
+    .pad{
+        padding-top: 10px;
+    }
+
     .mar-r {
         margin-right: 3%;
     }
@@ -142,10 +188,10 @@ $color-red       :#A03037;
         width: 80%;
     }
 
-    .wishlist{
+    .wishlist {
         opacity: 0.63;
-        cursor: pointer;
-        height: 30px;
+        cursor : pointer;
+        height : 30px;
     }
 
     .Order {
@@ -174,19 +220,20 @@ $color-red       :#A03037;
         }
     }
 
-    .greenDot{
+    .greenDot {
         background-color: #26A541;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
+        width           : 8px;
+        height          : 8px;
+        border-radius   : 50%;
     }
-    .OrderPlaced{
-        font: normal normal bold 15px/12px 'Roboto',sans-serif;
+
+    .OrderPlaced {
+        font           : normal normal bold 15px/12px 'Roboto', sans-serif;
         justify-content: center;
     }
 
-    
-    .fullwidth{
+
+    .fullwidth {
         width: 80%;
     }
 

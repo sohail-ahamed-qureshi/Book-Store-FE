@@ -1,11 +1,11 @@
-<section class="mainSection" fxLayout="column">
+<section *ngIf="!isManageBooks" class="mainSection" fxLayout="column">
     <section class="header">
         <h2 *ngIf="!isWishListComponent && !isMyOrdersComponent"><span (click)="redirectToHome()">Home/</span>My cart
         </h2>
         <h2 *ngIf="isWishListComponent"><span (click)="redirectToHome()">Home/</span>My wishlist</h2>
         <h2 *ngIf="isMyOrdersComponent"><span (click)="redirectToHome()">Home/</span>My Orders</h2>
     </section>
-    <section class="Mycart" [ngClass]="{fullwidth:isMyOrdersComponent}" >
+    <section class="Mycart" [ngClass]="{fullwidth:isMyOrdersComponent}">
         <div class="head" fxLayout="row" fxLayoutAlign="space-between center">
             <h3 *ngIf="!isWishListComponent && !isMyOrdersComponent">My cart({{itemsCount}})</h3>
             <h3 *ngIf="isWishListComponent">My wishlist({{itemsCount}})</h3>
@@ -45,13 +45,50 @@
             <div class="wishlist" *ngIf="isWishListComponent" (click)="removeItemFromWishList(item)">
                 <img src="../../../assets/delete_black_24dp.svg" alt="remove">
             </div>
-            <div *ngIf="isMyOrdersComponent" class="OrderPlaced" fxLayout="row" >
+            <div *ngIf="isMyOrdersComponent" class="OrderPlaced" fxLayout="row">
                 <div class="greenDot"></div>
                 <div> Order placed on <span> {{item.orderDate | date : 'MMMM dd'}} </span></div>
             </div>
         </div>
         <div *ngIf="!isClicked && !isWishListComponent  && !isMyOrdersComponent" class="ContBtn" fxLayoutAlign="end">
             <button (click)="ContToAddress(items)">place order</button>
+        </div>
+    </section>
+</section>
+
+
+
+
+<section *ngIf="isManageBooks" class="mainSection">
+    <section class="header">
+        <h2><span (click)="redirectToHome()">Home/</span>Manage Books
+        </h2>
+    </section>
+    <section class="Mycart">
+        <div class="head" fxLayout="row" fxLayoutAlign="space-between center">
+            <h3>All Items({{itemsCount}})</h3>
+            <div class="btn">
+               <span>Add New Item</span>
+            </div>
+        </div>
+        <div class="items" fxLayout="row" *ngFor="let item of items">
+            <div class="image">
+                <img src="{{item.image}}" alt="book image" onerror="this.onerror=null; 
+                this.src='https://res.cloudinary.com/dn1xsclq9/image/upload/v1631726343/component_m78r3t.png'">
+            </div>
+            <div class="bookDetails wdth2" fxLayout="column">
+                <span class="BookName">{{item.bookName}}</span>
+                <span class="author"> {{item.author}} </span>
+                <span class="price"> Rs.{{item.price}} </span>
+            </div>
+           <div>
+            <div class="btn2">
+                <span>Edit</span>
+            </div>
+            <div class="btn2">
+                <span>Delete</span>
+            </div>
+           </div>
         </div>
     </section>
 </section>

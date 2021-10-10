@@ -76,7 +76,7 @@ export class NavBarComponent implements OnInit {
   }
 
   redirectToBooks(){
-    
+    this.route.navigateByUrl('ManageBooks')
   }
 
 

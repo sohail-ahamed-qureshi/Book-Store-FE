@@ -1,3 +1,4 @@
+import { ManageBooksComponent } from './Components/manage-books/manage-books.component';
 import { MyProfileComponent } from './Components/my-profile/my-profile.component';
 import { MyOrdersComponent } from './Components/my-orders/my-orders.component';
 import { OrderSuccessComponent } from './Components/order-success/order-success.component';
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: 'MyWishlist', component: WishlistComponent, canActivate: [AuthenticationGuard] },
   { path: 'MyOrders', component: MyOrdersComponent, canActivate: [AuthenticationGuard] },
   { path: 'MyProfile', component: MyProfileComponent, canActivate: [AuthenticationGuard] },
+  { path: 'ManageBooks', component: ManageBooksComponent, canActivate: [AuthenticationGuard] },
   { path: 'OrderSuccess', component: OrderSuccessComponent },
 ];
 

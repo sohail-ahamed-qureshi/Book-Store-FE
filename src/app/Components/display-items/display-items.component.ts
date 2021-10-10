@@ -24,6 +24,7 @@ export class DisplayItemsComponent implements OnInit {
 
   @Input() isWishListComponent:any;
   @Input() isMyOrdersComponent:any;
+  @Input() isManageBooks:any;
   OrderBooks:any;
 
   @Output() UpdateCart = new EventEmitter<any>();
