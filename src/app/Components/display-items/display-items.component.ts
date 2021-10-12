@@ -1,3 +1,6 @@
+import { EditBookComponent } from './../edit-book/edit-book.component';
+import { MatDialog } from '@angular/material/dialog';
+import { ManageBookService } from './../../Services/bookService/manage-book.service';
 import { WishlistService } from './../../Services/wishlistService/wishlist.service';
 import { OrdersService } from './../../Services/OrderService/orders.service';
 import { AddressService } from './../../Services/addressService/address.service';
@@ -26,6 +29,7 @@ export class DisplayItemsComponent implements OnInit {
   @Input() isMyOrdersComponent:any;
   @Input() isManageBooks:any;
   OrderBooks:any;
+  visible=false;
 
   @Output() UpdateCart = new EventEmitter<any>();
   @Output() UpdateWishlist = new EventEmitter<any>();
@@ -35,7 +39,9 @@ export class DisplayItemsComponent implements OnInit {
     private DataService: DataService,
     private AddressService:AddressService,
     private OrdersService:OrdersService,
-    private WishlistService:WishlistService) { }
+    private WishlistService:WishlistService,
+    private ManageBookService:ManageBookService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
     console.log("Orders: "+this.isMyOrdersComponent)
@@ -140,6 +146,23 @@ export class DisplayItemsComponent implements OnInit {
     },
       error => {
         this.userService.openSnackBar(error.error.message);
+      });
+  }
+
+
+  DeleteItem(item:any){
+     this.ManageBookService.DeleteItem(item.bookId).subscribe((response:any)=>{
+      this.userService.openSnackBar(response.message);
+     },
+     error => {
+      this.userService.openSnackBar(error.error.message);
+    });
+     
+  }
+
+  EditItem(item:any){
+      this.dialog.open(EditBookComponent,{
+        data: item
       });
   }
 

@@ -54,6 +54,7 @@ $color-red       :#A03037;
 
         .items {
             margin-bottom: 2%;
+            cursor: pointer;
 
             .image {
                 width: 20%;
@@ -133,6 +134,7 @@ $color-red       :#A03037;
                 cursor        : pointer;
                 text-align    : center;
                 transition    : 0.3s ease-in;
+                
 
                 &:hover {
                     background-color: $color-red;
@@ -160,7 +162,7 @@ $color-red       :#A03037;
         }
     }
 
-    .pad{
+    .pad {
         padding-top: 10px;
     }
 
@@ -192,6 +194,15 @@ $color-red       :#A03037;
         opacity: 0.63;
         cursor : pointer;
         height : 30px;
+    }
+
+
+    .vis {
+        visibility: visible;
+    }
+
+    .novis{
+        visibility: hidden;
     }
 
     .Order {

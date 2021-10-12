@@ -68,27 +68,29 @@
         <div class="head" fxLayout="row" fxLayoutAlign="space-between center">
             <h3>All Items({{itemsCount}})</h3>
             <div class="btn">
-               <span>Add New Item</span>
+                <span>Add New Item</span>
             </div>
         </div>
-        <div class="items" fxLayout="row" *ngFor="let item of items">
+        <div class="items" fxLayout="row" *ngFor="let item of items" (mouseenter)="item.visible=true"
+            (mouseleave)="item.visible=false">
             <div class="image">
                 <img src="{{item.image}}" alt="book image" onerror="this.onerror=null; 
                 this.src='https://res.cloudinary.com/dn1xsclq9/image/upload/v1631726343/component_m78r3t.png'">
             </div>
-            <div class="bookDetails wdth2" fxLayout="column">
+            <div class="bookDetails wdth1" fxLayout="column">
                 <span class="BookName">{{item.bookName}}</span>
                 <span class="author"> {{item.author}} </span>
                 <span class="price"> Rs.{{item.price}} </span>
             </div>
-           <div>
-            <div class="btn2">
-                <span>Edit</span>
+
+            <div>
+                <div (click)="EditItem(item)" class="btn2" [ngClass]="item.visible ? 'vis' : 'novis'">
+                    <span>Edit</span>
+                </div>
+                <div (click)="DeleteItem(item)" class="btn2" [ngClass]="item.visible ? 'vis' : 'novis'">
+                    <span>Delete</span>
+                </div>
             </div>
-            <div class="btn2">
-                <span>Delete</span>
-            </div>
-           </div>
         </div>
     </section>
 </section>

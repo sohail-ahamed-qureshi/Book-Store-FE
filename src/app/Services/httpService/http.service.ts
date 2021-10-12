@@ -80,4 +80,8 @@ export class HttpService {
    return this.http.put(this.baseUrl+url, data);
   }
 
+  DeleteItem(url:any){
+    return this.http.delete(this.baseUrl+url);
+  }
+
 }

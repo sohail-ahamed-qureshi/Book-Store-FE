@@ -1,3 +1,5 @@
+import { HttpService } from './../httpService/http.service';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +7,9 @@ import { Injectable } from '@angular/core';
 })
 export class ManageBookService {
 
-  constructor() { }
+  constructor(private HttpService: HttpService) { }
+
+  DeleteItem(bookId:any){
+    return this.HttpService.DeleteItem('Books/'+bookId);
+  }
 }
