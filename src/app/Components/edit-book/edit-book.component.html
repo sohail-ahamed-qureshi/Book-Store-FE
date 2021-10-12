@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div fxLayout="row" >
-                    <div  class="btn" (click)="UpdateDetails(bookName.value, author.value, description.value, quantity.value, price.value)" >
+                    <div  class="btn" (click)="UpdateDetails(data.bookId ,bookName.value, author.value, description.value, quantity.value, price.value, data.image, data.rating)" >
                         <span>Save</span>
                     </div>
                     <div class="btn" mat-dialog-close >

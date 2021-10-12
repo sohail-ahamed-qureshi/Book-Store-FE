@@ -12,4 +12,8 @@ export class ManageBookService {
   DeleteItem(bookId:any){
     return this.HttpService.DeleteItem('Books/'+bookId);
   }
+
+  UpdateDetails(data:any){
+    return this.HttpService.UpdateBookDetails('Books', data);
+  }
 }

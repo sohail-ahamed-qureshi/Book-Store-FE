@@ -84,4 +84,8 @@ export class HttpService {
     return this.http.delete(this.baseUrl+url);
   }
 
+  UpdateBookDetails(url:any, data:any){
+    return this.http.put(this.baseUrl+url, data);
+  }
+
 }

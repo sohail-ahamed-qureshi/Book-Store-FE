@@ -1,3 +1,4 @@
+import { DataService } from 'src/app/Services/dataService/data.service';
 import { AdminService } from './../../Services/adminService/admin.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,12 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageBooksComponent implements OnInit {
   isManageBooks = true;
-  allBooks: any =[];
+  allBooks: any = [];
   booksCount: any;
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService,
+    private dataService: DataService) { }
 
   ngOnInit(): void {
     this.GetAllBooks();
+    this.dataService.rcvAllbooks.subscribe((response: any) => {
+      this.GetAllBooks();
+    })
   }
 
   GetAllBooks() {

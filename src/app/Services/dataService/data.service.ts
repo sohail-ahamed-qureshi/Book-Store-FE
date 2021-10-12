@@ -40,7 +40,18 @@ export class DataService {
   // sharebooks
   private shareBooks2 = new BehaviorSubject([]);
   rcvbook2 = this.shareBooks2.asObservable();
+
+  // update all books from edit dialog box to manage books component
+  private UpdateAllBooks = new BehaviorSubject([]);
+  rcvAllbooks = this.UpdateAllBooks.asObservable();
   constructor() { }
+
+
+  // update all books from edit dialog box to manage books component
+  sendAllBooks(message: any) {
+    this.UpdateAllBooks.next(message);
+  }
+
 
   // sharebooks
   sendBook(message: any) {
