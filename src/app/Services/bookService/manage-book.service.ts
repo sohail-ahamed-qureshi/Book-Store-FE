@@ -16,4 +16,8 @@ export class ManageBookService {
   UpdateDetails(data:any){
     return this.HttpService.UpdateBookDetails('Books', data);
   }
+
+  AddBook(data:any){
+    return this.HttpService.AddBook('Books', data);
+  }
 }

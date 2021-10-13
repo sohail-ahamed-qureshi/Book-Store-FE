@@ -39,6 +39,7 @@ import { MyProfileComponent } from './Components/my-profile/my-profile.component
 import { PerdonalDetailsComponent } from './Components/personal-details/perdonal-details.component';
 import { ManageBooksComponent } from './Components/manage-books/manage-books.component';
 import { EditBookComponent } from './Components/edit-book/edit-book.component';
+import { NewItemComponent } from './Components/new-item/new-item.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { EditBookComponent } from './Components/edit-book/edit-book.component';
     PerdonalDetailsComponent,
     ManageBooksComponent,
     EditBookComponent,
+    NewItemComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { NewItemComponent } from './../new-item/new-item.component';
 import { EditBookComponent } from './../edit-book/edit-book.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ManageBookService } from './../../Services/bookService/manage-book.service';
@@ -164,6 +165,10 @@ export class DisplayItemsComponent implements OnInit {
       this.dialog.open(EditBookComponent,{
         data: item
       });
+  }
+
+  AddNewItem(){
+    this.dialog.open(NewItemComponent)
   }
 
 }

@@ -88,4 +88,8 @@ export class HttpService {
     return this.http.put(this.baseUrl+url, data);
   }
 
+  AddBook(url:any, data:any){
+    return this.http.post(this.baseUrl+url, data);
+  }
+
 }

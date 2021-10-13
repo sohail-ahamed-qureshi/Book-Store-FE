@@ -1,0 +1,45 @@
+<div fxLayout="column">
+    <section class="mainSection" fxFlex.lt-sm=50 fxLayout="column">
+        <section class="mainContent" fxLayout="row" fxLayoutAlign="center none" fxLayout.lt-sm="column"
+            fxLayoutAlign.lt-sm="center center">
+            <div class="imagePart" fxLayout="column" fxLayoutAlign="none center">
+                <div class="image" fxLayoutAlign="center center">
+                    <img src="" alt="bookImage" onerror="this.onerror=null; 
+                this.src='https://res.cloudinary.com/dn1xsclq9/image/upload/v1631726343/component_m78r3t.png'">
+                </div>
+            </div>
+            <form [formGroup]="NewBook"  class="bookDetails">
+                <div class="basicDetails" fxLayout="column">
+                    <div fxLayout="column">
+                        <label for="bookId">Book Name:</label>
+                        <input type="text" formControlName='bookName' >
+                    </div>
+                    <div fxLayout="column">
+                        <label for="bookId">Author:</label>
+                        <input type="text"  formControlName='author' >
+                    </div>
+                    <div fxLayout="column">
+                        <label for="bookId">Description:</label>
+                        <textarea type="text" rows="4"  formControlName='description' ></textarea>
+                    </div>
+                    <div fxLayout="column">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number"  formControlName='quantity' >
+                    </div>
+                    <div fxLayout="column">
+                        <label for="bookId">Price(Rs.):</label>
+                        <input type="number"  formControlName='price' >
+                    </div>
+                </div>
+                <div fxLayout="row" >
+                    <div  class="btn" (click)="AddBook()" >
+                        <span>Save</span>
+                    </div>
+                    <div class="btn" mat-dialog-close >
+                        <span>Cancel</span>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </section>
+</div>
